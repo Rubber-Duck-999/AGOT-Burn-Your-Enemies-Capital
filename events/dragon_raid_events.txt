@@ -1,0 +1,121 @@
+﻿namespace = custom_dragon_raid
+
+# Main Raid Event
+custom_dragon_raid.0001 = {
+    type = character_event
+    window = agot_dragon_character_event
+    title = "Dragon Raid: Flight to [target_capital_county.GetName]"
+    desc = "I mount [my_dragon.GetName] and take to the skies, soaring over borders toward the capital of [recipient.GetTitledName]. Below lies their seat of power, [target_capital_county.GetName].\n\nShall I unleash dragonfire and reduce it to ruin?"
+    theme = dragon
+    override_background = {
+        reference = burning_building
+    }
+    
+    # AGOT Fire & Spark Shaders
+    widgets = {
+        widget = {
+            gui = "agot_event_shader_sparks"
+            container = "agot_shader_event_foreground"
+        }
+        widget = {
+            gui = "agot_event_shader_fire"
+            container = "agot_shader_event_background"
+        }
+    }
+
+    # AGOT Dragon Rider Flying Portrait Animation
+    right_portrait = {
+        character = root
+        camera = camera_dragonrider_flying_event_front
+        animation = dragon_main
+        outfit_tags = { dragonrider }
+    }
+    left_portrait = {
+        character = scope:my_dragon
+    }
+
+    immediate = {
+        # Fallback scopes to prevent human-as-dragon bug if tested via console
+        if = {
+            limit = { NOT = { exists = scope:my_dragon } }
+            var:current_dragon = { save_scope_as = my_dragon }
+        }
+        if = {
+            limit = { NOT = { exists = scope:target_capital_barony } }
+            scope:recipient.capital_county = {
+                save_scope_as = target_capital_county
+                barony = { save_scope_as = target_capital_barony }
+            }
+        }
+        agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
+    }
+
+    # OPTION 1: Dracarys (Turn holding into AGOT Ruin)
+    option = {
+        name = "Dracarys! Burn [target_capital_county.GetName] to ruins!"
+        
+        # FIX: Scope to the PROVINCE of the capital county
+        scope:target_capital_county = {
+            # Turn the capital province holding into a Ruin
+            title_province = {
+                set_holding_type = ruin_holding
+            }
+            
+            # Wipe development and set devastation
+            change_development_level = -100
+            add_county_modifier = {
+                modifier = dragon_burned_devastation
+                years = 10
+            }
+        }
+
+        # Kill target ruler using AGOT dragon siege death reason
+        scope:recipient = {
+            death = {
+                death_reason = death_dragon_siege
+                killer = scope:my_dragon
+            }
+        }
+
+        # Play AGOT dragon burning audio cue
+        play_music_cue = CK3AGOT_dragon_burn_holding
+
+        trigger_event = {
+            id = custom_dragon_raid.0002
+        }
+    }
+
+    # OPTION 2: Cancel
+    option = {
+        name = "Turn back..."
+    }
+
+    after = {
+        agot_clear_dragon_animation_flags = yes
+    }
+}
+
+# Success Notification Event
+custom_dragon_raid.0002 = {
+    type = character_event
+    window = agot_dragon_character_event
+    title = "Ashes and Ruin"
+    desc = "Dragonfire rained down upon the castle. Towers melted into glass, garrisons were consumed, and the capital has been reduced to an unlivable ruin."
+    theme = dragon
+    override_background = {
+        reference = burning_building
+    }
+
+    right_portrait = {
+        character = root
+        animation = personality_bold
+    }
+    left_portrait = {
+        character = scope:my_dragon
+    }
+
+    option = {
+        name = "Let all who oppose me burn."
+        add_dread = 50
+    }
+}

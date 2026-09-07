@@ -1,0 +1,17 @@
+﻿# Uses AGOT's native dragon_combat_effectiveness stat
+custom_dragon_attack_score = {
+    value = scope:actor.prowess
+    if = {
+        limit = { exists = scope:my_dragon }
+        add = scope:my_dragon.dragon_combat_effectiveness
+    }
+}
+
+custom_dragon_defense_score = {
+    value = 0
+    if = {
+        limit = { exists = scope:target_capital_barony }
+        value = scope:target_capital_barony.fort_level
+        multiply = 5
+    }
+}

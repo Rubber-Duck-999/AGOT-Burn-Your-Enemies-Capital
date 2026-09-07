@@ -1,0 +1,65 @@
+﻿dragon_raid_capital_interaction = {
+    category = interaction_category_hostile
+    desc = dragon_raid_capital_interaction_desc
+    icon = icon_hostile
+
+    # Visible if actor is a dragon rider and target is a landed ruler with a capital
+    is_shown = {
+        scope:actor = {
+            OR = {
+                has_trait = dragonrider # CK3 AGOT trait
+                has_character_flag = is_dragon_rider
+            }
+            is_imprisoned = no
+        }
+        scope:recipient = {
+            is_landed = yes
+            exists = primary_title
+            exists = capital_county
+            NOT = { this = scope:actor }
+        }
+    }
+
+    # Cooldown check
+    is_valid = {
+        scope:actor = {
+            NOT = { has_character_flag = dragon_raid_cooldown }
+        }
+    }
+
+    on_accept = {
+        # Apply cooldown
+        scope:actor = {
+            add_character_flag = {
+                name = dragon_raid_cooldown
+                years = 1
+            }
+            # Save the player's dragon using AGOT's native variable
+            var:current_dragon = {
+                save_scope_as = my_dragon
+            }
+        }
+        
+        # Save target capital county and capital barony correctly
+        scope:recipient = {
+            capital_county = {
+                save_scope_as = target_capital_county
+            }
+            # Use capital_holding directly from the character to avoid tier errors
+            capital_holding = {
+                save_scope_as = target_capital_barony
+            }
+        }
+
+        # Trigger event chain using explicit bracket syntax
+        scope:actor = {
+            trigger_event = {
+                id = custom_dragon_raid.0001
+            }
+        }
+    }
+
+    ai_will_do = {
+        base = 0 # Keeps AI from spamming it on players
+    }
+}
