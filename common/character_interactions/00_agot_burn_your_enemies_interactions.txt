@@ -15,6 +15,7 @@
             is_imprisoned = no
             exists = primary_title
             exists = capital_county
+            has_relation_rival = scope:actor
         }
     }
 
