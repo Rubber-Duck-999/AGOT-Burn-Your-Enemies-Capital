@@ -1,0 +1,51 @@
+agot_burn_your_enemies_minor_scorpion_damage_effect = {
+	if = {
+		limit = {
+			scope:agot_burn_your_enemies_target_capital_barony = {
+				has_stationed_scorpions = yes
+			}
+			agot_burn_your_enemies_dragon_attack_score < agot_burn_your_enemies_dragon_defense_score
+		}
+		random_list = {
+			75 = {}
+			25 = {
+				scope:actor = {
+					add_trait = wounded_1
+				}
+				scope:agot_burn_your_enemies_my_dragon = {
+					wound_dragon = yes
+				}
+			}
+		}
+	}
+}
+
+agot_burn_your_enemies_major_scorpion_damage_effect = {
+	if = {
+		limit = {
+			scope:agot_burn_your_enemies_target_capital_barony = {
+				has_stationed_scorpions = yes
+			}
+			agot_burn_your_enemies_dragon_attack_score < agot_burn_your_enemies_dragon_defense_score
+		}
+		random_list = {
+			40 = {}
+			45 = {
+				scope:actor = {
+					add_trait = wounded_1
+				}
+				scope:agot_burn_your_enemies_my_dragon = {
+					wound_dragon = yes
+				}
+			}
+			15 = {
+				scope:actor = {
+					add_trait = wounded_2
+				}
+				scope:agot_burn_your_enemies_my_dragon = {
+					wound_dragon = yes
+				}
+			}
+		}
+	}
+}

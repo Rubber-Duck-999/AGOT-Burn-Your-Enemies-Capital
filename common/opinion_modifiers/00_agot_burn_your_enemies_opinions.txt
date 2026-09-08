@@ -1,0 +1,3 @@
+agot_burn_your_enemies_dynasty_feud = {
+	opinion = -50
+}

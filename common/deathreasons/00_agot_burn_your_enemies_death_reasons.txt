@@ -1,0 +1,4 @@
+death_burning_enemy_with_dragon = {
+	public_knowledge = yes
+	icon = "death_dragon.dds"
+}

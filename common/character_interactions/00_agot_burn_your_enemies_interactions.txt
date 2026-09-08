@@ -74,6 +74,7 @@
         }
         
         scope:recipient = {
+            save_scope_as = agot_burn_your_enemies_target
             capital_county = {
                 save_scope_as = agot_burn_your_enemies_target_capital_county
             }

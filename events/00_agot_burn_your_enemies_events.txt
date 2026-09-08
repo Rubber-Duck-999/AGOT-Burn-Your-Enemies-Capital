@@ -61,6 +61,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                 years = 5
             }
         }
+        agot_burn_your_enemies_minor_scorpion_damage_effect = yes
 
         trigger_event = {
             id = agot_burn_your_enemies_dragon_raid.0002
@@ -78,11 +79,34 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                 years = 10
             }
         }
+        agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
         scope:recipient = {
-            death = {
-                death_reason = death_dragon_fire
-                killer = scope:agot_burn_your_enemies_my_dragon
+            random_list = {
+                50 = {
+                    death = {
+                        death_reason = death_dragon_fire
+                        killer = scope:agot_burn_your_enemies_my_dragon
+                    }
+                }
+                50 = {
+                    add_trait = wounded_2
+                    add_trait = burned
+                    add_trait_xp = {
+                        trait = burned
+                        value = 100
+                    }
+                    add_opinion = {
+                        target = scope:actor
+                        modifier = agot_burn_your_enemies_dynasty_feud
+                    }
+                    if = {
+                        limit = {
+                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
+                        }
+                        set_relation_rival = scope:actor
+                    }
+                }
             }
         }
 
@@ -114,6 +138,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
 
         play_music_cue = CK3AGOT_dragon_burn_holding
+        agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
         scope:recipient = {
             every_courtier_or_guest = {
@@ -121,14 +146,61 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                     is_alive = yes
                     NOT = { has_trait = dragonrider }
                 }
-                death = {
-                    death_reason = death_dragon_fire
-                    killer = scope:agot_burn_your_enemies_my_dragon
+                random_list = {
+                    50 = {
+                        death = {
+                            death_reason = death_dragon_fire
+                            killer = scope:agot_burn_your_enemies_my_dragon
+                        }
+                    }
+                    50 = {
+                        add_trait = wounded_2
+                        add_opinion = {
+                            target = scope:actor
+                            modifier = agot_burn_your_enemies_dynasty_feud
+                        }
+                        if = {
+                            limit = {
+                                can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
+                            }
+                            set_relation_rival = scope:actor
+                        }
+                    }
                 }
             }
-            death = {
-                death_reason = death_dragon_fire
-                killer = scope:agot_burn_your_enemies_my_dragon
+            random_list = {
+                50 = {
+                    death = {
+                        death_reason = death_dragon_fire
+                        killer = scope:agot_burn_your_enemies_my_dragon
+                    }
+                }
+                50 = {
+                    add_trait = wounded_2
+                    add_opinion = {
+                        target = scope:actor
+                        modifier = agot_burn_your_enemies_dynasty_feud
+                    }
+                    if = {
+                        limit = {
+                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
+                        }
+                        set_relation_rival = scope:actor
+                    }
+                }
+            }
+        }
+
+        scope:actor = {
+            random_list = {
+                50 = {
+                    death = {
+                        death_reason = death_burning_enemy_with_dragon
+                    }
+                }
+                50 = {
+                    add_trait = wounded_2
+                }
             }
         }
 
