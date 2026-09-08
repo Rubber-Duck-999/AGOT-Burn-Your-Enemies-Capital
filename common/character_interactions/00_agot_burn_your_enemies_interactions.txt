@@ -1,19 +1,24 @@
 ﻿agot_burn_your_enemies_dragon_raid_capital_interaction = {
     category = interaction_category_hostile
     desc = agot_burn_your_enemies_dragon_raid_capital_interaction_desc
-    icon = icon_hostile
+    icon = icon_dragon_burn
 
-    # Visible if actor is a dragon rider and target is a landed ruler with a capital
+    # Only allows to if both not at war or not imprisoned
     is_shown = {
         scope:actor = {
             OR = {
-                has_trait = dragonrider # CK3 AGOT trait
+                has_trait = dragonrider
             }
             is_imprisoned = no
             is_at_war = no
+            is_travelling = no
         }
         scope:recipient = {
+            is_imprisoned = no
             is_landed = yes
+            is_at_war = no
+            is_travelling = no
+            NOT = { is_imprisoned = yes }
             exists = primary_title
             exists = capital_county
             NOT = { this = scope:actor }
@@ -28,6 +33,7 @@
     }
 
 	auto_accept = yes
+    use_diplomatic_range = yes
 
     on_accept = {
         # Apply cooldown

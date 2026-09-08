@@ -4,7 +4,7 @@
 agot_burn_your_enemies_dragon_raid.0001 = {
     type = character_event
     window = agot_dragon_character_event
-    title = "Dragon Raid: Flight to [agot_burn_your_enemies_target_capital_county.GetName]"
+    title = "Burn Your Enemies Capital: Fly to [agot_burn_your_enemies_target_capital_county.GetName]"
     desc = "I mount [agot_burn_your_enemies_my_dragon.GetName] and take to the skies, soaring over borders toward the capital of [recipient.GetTitledName]. Below lies their seat of power, [agot_burn_your_enemies_target_capital_county.GetName].\n\nShall I unleash dragonfire and reduce it to ruin?"
     theme = dragon
     override_background = {
@@ -100,7 +100,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
     type = character_event
     window = agot_dragon_character_event
     title = "Ashes and Ruin"
-    desc = "Dragonfire rained down upon the castle. Towers melted into glass, garrisons were consumed, and the capital has been reduced to an unlivable ruin."
+    desc = "Dragonfire rained down upon the castle. Towers melted into glass, garrisons were consumed, and the capital has been reduced to rubble."
     theme = dragon
     override_background = {
         reference = burning_building
@@ -116,6 +116,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
 
     option = {
         name = "Let all who oppose me burn."
-        add_dread = 50
+        add_dread = 100
+        add_trait = murderer
     }
 }
