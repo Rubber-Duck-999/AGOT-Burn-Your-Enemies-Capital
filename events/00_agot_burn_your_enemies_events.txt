@@ -4,8 +4,8 @@
 agot_burn_your_enemies_dragon_raid.0001 = {
     type = character_event
     window = agot_dragon_character_event
-    title = "Burn Your Enemies Capital: Fly to [agot_burn_your_enemies_target_capital_county.GetName]"
-    desc = "I mount [agot_burn_your_enemies_my_dragon.GetName] and take to the skies, soaring over borders toward the capital of [recipient.GetTitledName]. Below lies their seat of power, [agot_burn_your_enemies_target_capital_county.GetName].\n\nShall I unleash dragonfire and reduce it to ruin?"
+    title = agot_burn_your_enemies_dragon_raid.0001.t
+    desc = agot_burn_your_enemies_dragon_raid.0001.desc
     theme = dragon
     override_background = {
         reference = burning_building
@@ -42,35 +42,82 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
         if = {
             limit = { NOT = { exists = scope:agot_burn_your_enemies_target_capital_barony } }
-            scope:recipient.capital_county = {
+            scope:recipient = {
                 save_scope_as = agot_burn_your_enemies_target_capital_county
-                barony = { save_scope_as = agot_burn_your_enemies_target_capital_barony }
+                capital_province = {
+                    save_scope_as = agot_burn_your_enemies_target_capital_barony
+                }
             }
+        }
+        scope:agot_burn_your_enemies_target_capital_barony = {
+            save_scope_as = sieging_location
+        }
+        scope:agot_burn_your_enemies_my_dragon = {
+            save_scope_as = sieging_dragon
         }
         agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
     }
 
-    # OPTION 1: Dracarys (Turn holding into AGOT Ruin)
+    # OPTION 1: Minor damage
     option = {
-        name = "Dracarys! Burn [agot_burn_your_enemies_target_capital_county.GetName] to ruins!"
-        
-        # FIX: Scope to the PROVINCE of the capital county
+        name = agot_burn_your_enemies_dragon_raid.0001.minor
         scope:agot_burn_your_enemies_target_capital_county = {
-            # Turn the capital province holding into a Ruin
-            title_province = {
-                set_holding_type = ruin_holding
+            agot_dragon_siege_fort_damage_minor_effect = yes
+            add_county_modifier = {
+                modifier = agot_burn_your_enemies_holding_dragon_scathed
+                years = 5
             }
-            
-            # Wipe development and set devastation
+        }
+        play_music_cue = CK3AGOT_dragon_burn_holding
+        trigger_event = {
+            id = agot_burn_your_enemies_dragon_raid.0002
+        }
+    }
+
+    # OPTION 2: Major damage
+    option = {
+        name = agot_burn_your_enemies_dragon_raid.0001.major
+        scope:agot_burn_your_enemies_target_capital_county = {
+            agot_dragon_siege_fort_damage_major_effect = yes
+            change_development_level = -50
+            add_county_modifier = {
+                modifier = agot_burn_your_enemies_dragon_burned_devastation
+                years = 10
+            }
+        }
+        play_music_cue = CK3AGOT_dragon_burn_holding
+        trigger_event = {
+            id = agot_burn_your_enemies_dragon_raid.0002
+        }
+    }
+
+    # OPTION 3: Turn the capital to ruins
+    option = {
+        name = agot_burn_your_enemies_dragon_raid.0001.ruin
+        scope:agot_burn_your_enemies_target_capital_county = {
+            agot_dragon_siege_fort_damage_massive_effect = yes
             change_development_level = -100
             add_county_modifier = {
                 modifier = agot_burn_your_enemies_dragon_burned_devastation
                 years = 10
             }
         }
+        scope:agot_burn_your_enemies_target_capital_barony = {
+            set_holding_type = ruin_holding
+        }
 
-        # Kill target ruler using AGOT dragon siege death reason
         scope:recipient = {
+            every_courtier_or_guest = {
+                limit = {
+                    is_alive = yes
+                    is_travelling = no
+                    NOT = { has_trait = dragonrider }
+                }
+                death = {
+                    death_reason = death_dragon_siege
+                    killer = scope:agot_burn_your_enemies_my_dragon
+                }
+            }
             death = {
                 death_reason = death_dragon_siege
                 killer = scope:agot_burn_your_enemies_my_dragon
@@ -85,9 +132,9 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
     }
 
-    # OPTION 2: Cancel
+    # OPTION 4: Cancel
     option = {
-        name = "Turn back..."
+        name = agot_burn_your_enemies_dragon_raid.0001.cancel
     }
 
     after = {
@@ -99,8 +146,8 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 agot_burn_your_enemies_dragon_raid.0002 = {
     type = character_event
     window = agot_dragon_character_event
-    title = "Ashes and Ruin"
-    desc = "Dragonfire rained down upon the castle. Towers melted into glass, garrisons were consumed, and the capital has been reduced to rubble."
+    title = agot_burn_your_enemies_dragon_raid.0002.t
+    desc = agot_burn_your_enemies_dragon_raid.0002.desc
     theme = dragon
     override_background = {
         reference = burning_building
@@ -115,7 +162,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
     }
 
     option = {
-        name = "Let all who oppose me burn."
+        name = agot_burn_your_enemies_dragon_raid.0002.a
         add_dread = 100
         add_trait = murderer
     }

@@ -10,28 +10,59 @@
                 has_trait = dragonrider
             }
             is_imprisoned = no
-            is_at_war = no
-            is_travelling = no
         }
         scope:recipient = {
-            is_imprisoned = no
             is_landed = yes
-            is_at_war = no
-            is_travelling = no
-            NOT = { is_imprisoned = yes }
+            is_imprisoned = no
             exists = primary_title
             exists = capital_county
-            NOT = { this = scope:actor }
         }
     }
 
-    # Cooldown check
-    is_valid = {
+    is_valid_showing_failures_only = {
         scope:actor = {
-            NOT = { has_character_flag = agot_burn_your_enemies_dragon_raid_cooldown }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_actor_at_war
+                is_at_war = no
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_actor_travelling
+                is_travelling = no
+            }
+        }
+        scope:recipient = {
+            custom_tooltip = {
+                text = agot_burn_your_enemies_recipient_at_war
+                is_at_war = no
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_recipient_travelling
+                is_travelling = no
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_capital_already_ruined
+                NOT = {
+                    capital_province = {
+                        has_holding_type = ruin_holding
+                    }
+                }
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_no_court_dragonrider
+                NOT = {
+                    any_courtier_or_guest = {
+                        is_travelling = no
+                        OR = {
+                            has_trait = dragonrider
+                            has_trait = dragon
+                        }
+                    }
+                }
+            }
         }
     }
 
+    cooldown = { years = 10 }
 	auto_accept = yes
     use_diplomatic_range = yes
 
@@ -53,8 +84,8 @@
             capital_county = {
                 save_scope_as = agot_burn_your_enemies_target_capital_county
             }
-            # Use capital_holding directly from the character to avoid tier errors
-            capital_holding = {
+            # Save the capital province title as the target barony
+            capital_province = {
                 save_scope_as = agot_burn_your_enemies_target_capital_barony
             }
         }

@@ -1,0 +1,6 @@
+spriteTypes = {
+    spriteType = {
+        name = "icon_dragon_burn"
+        texturefile = "gfx/interface/icons/character_interactions/icon_dragon_burn.dds"
+    }
+}
