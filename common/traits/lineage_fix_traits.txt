@@ -1,4 +1,0 @@
-﻿lineage_tracked_trait = {
-	category = fame
-	icon = born_in_purple
-}
