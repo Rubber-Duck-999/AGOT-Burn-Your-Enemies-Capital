@@ -3,6 +3,7 @@
 # Main Raid Event
 agot_burn_your_enemies_dragon_raid.0001 = {
     type = character_event
+    window = agot_dragon_character_event
     title = agot_burn_your_enemies_dragon_raid.0001.t
     desc = agot_burn_your_enemies_dragon_raid.0001.desc
     theme = dragon
@@ -82,30 +83,23 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
         scope:recipient = {
-            random_list = {
-                50 = {
-                    death = {
-                        death_reason = death_dragon_fire
-                        killer = scope:agot_burn_your_enemies_my_dragon
-                    }
+            add_trait = wounded_2
+            add_trait = burned
+            add_trait_xp = {
+                trait = burned
+                value = 50
+            }
+            add_opinion = {
+                target = scope:actor
+                modifier = agot_burn_your_enemies_dynasty_feud
+            }
+            if = {
+                limit = {
+                    can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
                 }
-                50 = {
-                    add_trait = wounded_2
-                    add_trait = burned
-                    add_trait_xp = {
-                        trait = burned
-                        value = 100
-                    }
-                    add_opinion = {
-                        target = scope:actor
-                        modifier = agot_burn_your_enemies_dynasty_feud
-                    }
-                    if = {
-                        limit = {
-                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
-                        }
-                        set_relation_rival = scope:actor
-                    }
+                set_relation_rival = {
+                    target = scope:actor
+                    reason = rival_burned_my_capital
                 }
             }
         }
@@ -119,9 +113,8 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         name = agot_burn_your_enemies_dragon_raid.0001.ruin
 
         trigger = {
-            has_trait = vengeful
             scope:agot_burn_your_enemies_my_dragon = {
-                dragon_combat_effectiveness > 300
+                dragon_combat_effectiveness > 200
             }
         }
 
@@ -144,39 +137,51 @@ agot_burn_your_enemies_dragon_raid.0001 = {
             every_courtier_or_guest = {
                 limit = {
                     is_alive = yes
-                    NOT = { has_trait = dragonrider }
                 }
                 random_list = {
-                    50 = {
+                    70 = {
                         death = {
                             death_reason = death_dragon_fire
                             killer = scope:agot_burn_your_enemies_my_dragon
                         }
                     }
-                    50 = {
+                    30 = {
                         add_trait = wounded_2
+                        add_trait = burned
+                        add_trait_xp = {
+                            trait = burned
+                            value = 100
+                        }
                         add_opinion = {
                             target = scope:actor
-                            modifier = agot_burn_your_enemies_dynasty_feud
+                            modifier = agot_burn_your_enemies_liege_dynasty_feud
                         }
                         if = {
                             limit = {
                                 can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
                             }
-                            set_relation_rival = scope:actor
+                            set_relation_rival = {
+                                target = scope:actor
+                                reason = rival_burned_my_liege_capital
+                            }
                         }
                     }
                 }
             }
             random_list = {
-                50 = {
+                80 = {
                     death = {
                         death_reason = death_dragon_fire
                         killer = scope:agot_burn_your_enemies_my_dragon
                     }
                 }
-                50 = {
+                20 = {
                     add_trait = wounded_2
+                    add_trait = burned
+                    add_trait_xp = {
+                        trait = burned
+                        value = 100
+                    }
                     add_opinion = {
                         target = scope:actor
                         modifier = agot_burn_your_enemies_dynasty_feud
@@ -185,7 +190,10 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                         limit = {
                             can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
                         }
-                        set_relation_rival = scope:actor
+						set_relation_rival = {
+							target = scope:actor
+							reason = rival_burned_my_capital
+						}
                     }
                 }
             }
@@ -193,12 +201,12 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         scope:actor = {
             random_list = {
-                50 = {
+                20 = {
                     death = {
                         death_reason = death_burning_enemy_with_dragon
                     }
                 }
-                50 = {
+                80 = {
                     add_trait = wounded_2
                 }
             }
@@ -223,6 +231,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
 agot_burn_your_enemies_dragon_raid.0002 = {
     type = character_event
+    window = agot_dragon_character_event
     title = agot_burn_your_enemies_dragon_raid.0002.t
     desc = agot_burn_your_enemies_dragon_raid.0002.desc
     theme = dragon
@@ -243,6 +252,6 @@ agot_burn_your_enemies_dragon_raid.0002 = {
     option = {
         name = agot_burn_your_enemies_dragon_raid.0002.a
         add_dread = 100
-        add_trait = murderer
+        add_stress = 100
     }
 }

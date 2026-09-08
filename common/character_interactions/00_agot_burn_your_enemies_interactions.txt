@@ -5,8 +5,9 @@
 
     is_shown = {
         scope:actor = {
-            OR = {
+            AND = {
                 has_trait = dragonrider
+                has_trait = vengeful
             }
             is_imprisoned = no
         }
@@ -15,7 +16,6 @@
             is_imprisoned = no
             exists = primary_title
             exists = capital_county
-            has_relation_rival = scope:actor
         }
     }
 
@@ -46,6 +46,10 @@
                         has_holding_type = ruin_holding
                     }
                 }
+            }
+            custom_tooltip = {
+                has_relation_rival = scope:actor
+                text = agot_burn_your_enemies_not_your_rival
             }
             custom_tooltip = {
                 text = agot_burn_your_enemies_no_court_dragonrider

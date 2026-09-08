@@ -1,4 +1,11 @@
 ﻿l_english:
+ death_burning_enemy_with_dragon:0 "died while burning an enemy with a dragon"
+ death_burning_enemy_with_dragon_killer:0 "was killed by [TARGET_CHARACTER.GetUIName] while burning an enemy with a dragon"
+ rival_burned_my_capital:0 "[TARGET_CHARACTER.GetShortUIName|U] burned my capital with their dragon"
+ agot_burn_your_enemies_dynasty_feud:0 "Burned My Capital"
+ agot_burn_your_enemies_liege_dynasty_feud:0 "Burned My Liege's Capital"
+ rival_burned_my_liege_capital:0 "[TARGET_CHARACTER.GetShortUIName|U] burned my liege's capital with their dragon"
+
  agot_burn_your_enemies_dragon_raid_capital_interaction:0 "Burn Capital"
  agot_burn_your_enemies_dragon_raid_capital_interaction_desc:0 "Mount your dragon and fly directly to the capital of this ruler to lay waste to their holdings."
  agot_burn_your_enemies_capital_already_ruined:0 "This capital is already a ruin."
@@ -6,6 +13,7 @@
  agot_burn_your_enemies_actor_travelling:0 "You are currently travelling."
  agot_burn_your_enemies_recipient_at_war:0 "This ruler is currently at war."
  agot_burn_your_enemies_recipient_travelling:0 "This ruler is currently travelling."
+ agot_burn_your_enemies_not_your_rival:0 "This ruler is not your rival."
  agot_burn_your_enemies_no_court_dragonrider:0 "There are dragonriders in this court."
  
  agot_burn_your_enemies_dragon_burned_devastation:0 "Dragon Devastation"
@@ -15,7 +23,7 @@
  agot_burn_your_enemies_holding_dragon_scathed_desc:0 "The walls and garrisons of this holding were melted and scattered by dragonfire."
  
  agot_burn_your_enemies_dragon_raid.0001.t:0 "Burn Your Enemies Capital: Fly to [agot_burn_your_enemies_target_capital_county.GetName]"
- agot_burn_your_enemies_dragon_raid.0001.desc:0 "I mount [agot_burn_your_enemies_my_dragon.GetName] and take to the skies, soaring over borders toward the capital of [recipient.GetTitledName]. Below lies their seat of power, [agot_burn_your_enemies_target_capital_county.GetName].\n\nShall I unleash dragonfire and reduce it to ruin?"
+ agot_burn_your_enemies_dragon_raid.0001.desc:0 "I mount [agot_burn_your_enemies_my_dragon.GetName] and take to the skies, soaring over borders toward the capital of [agot_burn_your_enemies_target.GetName]. Below lies their seat of power, [agot_burn_your_enemies_target_capital_county.GetName].\n\nShall I unleash dragonfire and reduce it to ruin?"
  agot_burn_your_enemies_dragon_raid.0001.minor:0 "Scorch [agot_burn_your_enemies_target_capital_county.GetName]"
  agot_burn_your_enemies_dragon_raid.0001.major:0 "Burn [agot_burn_your_enemies_target_capital_county.GetName]"
  agot_burn_your_enemies_dragon_raid.0001.ruin:0 "Dracarys! Reduce [agot_burn_your_enemies_target_capital_county.GetName] to ruins!"
