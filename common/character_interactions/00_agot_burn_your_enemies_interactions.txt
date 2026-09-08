@@ -1,7 +1,7 @@
 ﻿agot_burn_your_enemies_dragon_raid_capital_interaction = {
     category = interaction_category_hostile
     desc = agot_burn_your_enemies_dragon_raid_capital_interaction_desc
-    icon = icon_dragon_burn
+    icon = faction
 
     is_shown = {
         scope:actor = {
@@ -66,7 +66,7 @@
         }
     }
 
-
+    cooldown = { years = 20 }
 	auto_accept = yes
     use_diplomatic_range = yes
 

@@ -5,6 +5,7 @@
     tax_mult = -5
     levy_size = -5
     fort_level = -10
+    control = -100
 }
 
 agot_burn_your_enemies_holding_dragon_scathed = {
