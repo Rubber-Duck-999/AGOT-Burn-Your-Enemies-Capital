@@ -3,7 +3,6 @@
     desc = agot_burn_your_enemies_dragon_raid_capital_interaction_desc
     icon = icon_dragon_burn
 
-    # Only allows to if both not at war or not imprisoned
     is_shown = {
         scope:actor = {
             OR = {
@@ -67,30 +66,21 @@
     use_diplomatic_range = yes
 
     on_accept = {
-        # Apply cooldown
         scope:actor = {
-            add_character_flag = {
-                name = agot_burn_your_enemies_dragon_raid_cooldown
-                years = 10
-            }
-            # Save the player's dragon using AGOT's native variable
             var:current_dragon = {
                 save_scope_as = agot_burn_your_enemies_my_dragon
             }
         }
         
-        # Save target capital county and capital barony correctly
         scope:recipient = {
             capital_county = {
                 save_scope_as = agot_burn_your_enemies_target_capital_county
             }
-            # Save the capital province title as the target barony
             capital_province = {
                 save_scope_as = agot_burn_your_enemies_target_capital_barony
             }
         }
 
-        # Trigger event chain using explicit bracket syntax
         scope:actor = {
             trigger_event = {
                 id = agot_burn_your_enemies_dragon_raid.0001
@@ -99,6 +89,6 @@
     }
 
     ai_will_do = {
-        base = 0 # Keeps AI from spamming it on players
+        base = 0
     }
 }

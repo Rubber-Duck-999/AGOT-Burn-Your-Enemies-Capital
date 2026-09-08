@@ -3,7 +3,6 @@
 # Main Raid Event
 agot_burn_your_enemies_dragon_raid.0001 = {
     type = character_event
-    window = agot_dragon_character_event
     title = agot_burn_your_enemies_dragon_raid.0001.t
     desc = agot_burn_your_enemies_dragon_raid.0001.desc
     theme = dragon
@@ -23,23 +22,25 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
     }
 
-    # AGOT Dragon Rider Flying Portrait Animation
+    left_portrait = {
+        character = scope:agot_burn_your_enemies_my_dragon
+    }
+
     right_portrait = {
         character = root
         camera = camera_dragonrider_flying_event_front
         animation = dragon_main
         outfit_tags = { dragonrider }
     }
-    left_portrait = {
-        character = scope:agot_burn_your_enemies_my_dragon
-    }
+
+    play_music_cue = CK3AGOT_dragon_burn_holding
 
     immediate = {
-        # Fallback scopes to prevent human-as-dragon bug if tested via console
         if = {
             limit = { NOT = { exists = scope:agot_burn_your_enemies_my_dragon } }
             var:current_dragon = { save_scope_as = agot_burn_your_enemies_my_dragon }
         }
+
         if = {
             limit = { NOT = { exists = scope:agot_burn_your_enemies_target_capital_barony } }
             scope:recipient = {
@@ -49,16 +50,18 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                 }
             }
         }
+
         scope:agot_burn_your_enemies_target_capital_barony = {
             save_scope_as = sieging_location
         }
+
         scope:agot_burn_your_enemies_my_dragon = {
             save_scope_as = sieging_dragon
         }
+
         agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
     }
 
-    # OPTION 1: Minor damage
     option = {
         name = agot_burn_your_enemies_dragon_raid.0001.minor
         scope:agot_burn_your_enemies_target_capital_county = {
@@ -68,15 +71,15 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                 years = 5
             }
         }
-        play_music_cue = CK3AGOT_dragon_burn_holding
+
         trigger_event = {
             id = agot_burn_your_enemies_dragon_raid.0002
         }
     }
 
-    # OPTION 2: Major damage
     option = {
         name = agot_burn_your_enemies_dragon_raid.0001.major
+
         scope:agot_burn_your_enemies_target_capital_county = {
             agot_dragon_siege_fort_damage_major_effect = yes
             change_development_level = -50
@@ -85,15 +88,26 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                 years = 10
             }
         }
-        play_music_cue = CK3AGOT_dragon_burn_holding
+
+        scope:recipient = {
+            death = {
+                death_reason = death_burned
+                killer = scope:agot_burn_your_enemies_my_dragon
+            }
+        }
+
         trigger_event = {
             id = agot_burn_your_enemies_dragon_raid.0002
         }
     }
 
-    # OPTION 3: Turn the capital to ruins
     option = {
         name = agot_burn_your_enemies_dragon_raid.0001.ruin
+
+        trigger = {
+            has_trait = vengeful
+        }
+
         scope:agot_burn_your_enemies_target_capital_county = {
             agot_dragon_siege_fort_damage_massive_effect = yes
             change_development_level = -100
@@ -110,26 +124,26 @@ agot_burn_your_enemies_dragon_raid.0001 = {
             every_courtier_or_guest = {
                 limit = {
                     is_alive = yes
-                    is_travelling = no
                     NOT = { has_trait = dragonrider }
                 }
                 death = {
-                    death_reason = death_dragon_siege
+                    death_reason = death_burned
                     killer = scope:agot_burn_your_enemies_my_dragon
                 }
             }
             death = {
-                death_reason = death_dragon_siege
+                death_reason = death_burned
                 killer = scope:agot_burn_your_enemies_my_dragon
             }
         }
 
-        # Play AGOT dragon burning audio cue
-        play_music_cue = CK3AGOT_dragon_burn_holding
-
         trigger_event = {
             id = agot_burn_your_enemies_dragon_raid.0002
         }
+
+        add_internal_flag = dangerous
+        add_prestige = -10000
+        add_short_term_gold = -5000
     }
 
     # OPTION 4: Cancel
@@ -145,20 +159,21 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 # Success Notification Event
 agot_burn_your_enemies_dragon_raid.0002 = {
     type = character_event
-    window = agot_dragon_character_event
     title = agot_burn_your_enemies_dragon_raid.0002.t
     desc = agot_burn_your_enemies_dragon_raid.0002.desc
     theme = dragon
+
     override_background = {
         reference = burning_building
     }
 
-    right_portrait = {
-        character = root
-        animation = personality_bold
-    }
     left_portrait = {
         character = scope:agot_burn_your_enemies_my_dragon
+    }
+
+    right_portrait = {
+        character = root
+        animation = sadness
     }
 
     option = {
