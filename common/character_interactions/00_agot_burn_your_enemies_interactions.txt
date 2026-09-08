@@ -61,7 +61,7 @@
         }
     }
 
-    cooldown = { years = 10 }
+
 	auto_accept = yes
     use_diplomatic_range = yes
 

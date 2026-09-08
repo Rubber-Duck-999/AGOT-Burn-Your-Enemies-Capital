@@ -33,8 +33,6 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         outfit_tags = { dragonrider }
     }
 
-    play_music_cue = CK3AGOT_dragon_burn_holding
-
     immediate = {
         if = {
             limit = { NOT = { exists = scope:agot_burn_your_enemies_my_dragon } }
@@ -49,14 +47,6 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                     save_scope_as = agot_burn_your_enemies_target_capital_barony
                 }
             }
-        }
-
-        scope:agot_burn_your_enemies_target_capital_barony = {
-            save_scope_as = sieging_location
-        }
-
-        scope:agot_burn_your_enemies_my_dragon = {
-            save_scope_as = sieging_dragon
         }
 
         agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
@@ -91,7 +81,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         scope:recipient = {
             death = {
-                death_reason = death_burned
+                death_reason = death_dragon_fire
                 killer = scope:agot_burn_your_enemies_my_dragon
             }
         }
@@ -106,6 +96,9 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         trigger = {
             has_trait = vengeful
+            scope:agot_burn_your_enemies_my_dragon = {
+                dragon_combat_effectiveness > 300
+            }
         }
 
         scope:agot_burn_your_enemies_target_capital_county = {
@@ -120,6 +113,8 @@ agot_burn_your_enemies_dragon_raid.0001 = {
             set_holding_type = ruin_holding
         }
 
+        play_music_cue = CK3AGOT_dragon_burn_holding
+
         scope:recipient = {
             every_courtier_or_guest = {
                 limit = {
@@ -127,12 +122,12 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                     NOT = { has_trait = dragonrider }
                 }
                 death = {
-                    death_reason = death_burned
+                    death_reason = death_dragon_fire
                     killer = scope:agot_burn_your_enemies_my_dragon
                 }
             }
             death = {
-                death_reason = death_burned
+                death_reason = death_dragon_fire
                 killer = scope:agot_burn_your_enemies_my_dragon
             }
         }
@@ -143,10 +138,8 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         add_internal_flag = dangerous
         add_prestige = -10000
-        add_short_term_gold = -5000
     }
 
-    # OPTION 4: Cancel
     option = {
         name = agot_burn_your_enemies_dragon_raid.0001.cancel
     }
@@ -156,7 +149,6 @@ agot_burn_your_enemies_dragon_raid.0001 = {
     }
 }
 
-# Success Notification Event
 agot_burn_your_enemies_dragon_raid.0002 = {
     type = character_event
     title = agot_burn_your_enemies_dragon_raid.0002.t
