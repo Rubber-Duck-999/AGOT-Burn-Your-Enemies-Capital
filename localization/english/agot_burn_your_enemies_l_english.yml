@@ -1,0 +1,22 @@
+﻿l_english:
+ agot_burn_your_enemies_dragon_raid_capital_interaction:0 "Dragon Raid: Burn Capital"
+ agot_burn_your_enemies_dragon_raid_capital_interaction_desc:0 "Mount your dragon and fly directly to the capital of this ruler to lay waste to their holdings."
+ 
+ agot_burn_your_enemies_dragon_burned_devastation:0 "Dragon Devastation"
+ agot_burn_your_enemies_dragon_burned_devastation_desc:0 "This county was recently burned by dragonfire, destroying infrastructure and terrifying the populace."
+ 
+ agot_burn_your_enemies_holding_dragon_scathed:0 "Dragon Scathed Castle"
+ agot_burn_your_enemies_holding_dragon_scathed_desc:0 "The walls and garrisons of this holding were melted and scattered by dragonfire."
+ 
+ agot_burn_your_enemies_dragon_raid_event.0001.t:0 "Flight of Fire"
+ agot_burn_your_enemies_dragon_raid_event.0001.desc:0 "My dragon takes to the sky, soaring over armies and borders toward the capital of [recipient.GetTitledName]. Below lies their seat of power, [recipient.GetCapitalLocation.GetName].\n\nShall I unleash dragonfire upon them?"
+ agot_burn_your_enemies_dragon_raid_event.0001.a:0 "Dracarys! Burn their capital!"
+ agot_burn_your_enemies_dragon_raid_event.0001.b:0 "Turn back..."
+ 
+ agot_burn_your_enemies_dragon_raid_event.0002.t:0 "Ashes and Ruin"
+ agot_burn_your_enemies_dragon_raid_event.0002.desc:0 "The raid was a resounding success! Dragonfire rained down upon [recipient.GetCapitalLocation.GetName], melting castle towers and scattering defenders. Their capital lies in ruins."
+ agot_burn_your_enemies_dragon_raid_event.0002.a:0 "Let them fear the dragon."
+ 
+ agot_burn_your_enemies_dragon_raid_event.0003.t:0 "Repelled by Defenses"
+ agot_burn_your_enemies_dragon_raid_event.0003.desc:0 "As we closed in on [recipient.GetCapitalLocation.GetName], scorpion bolts and archers filled the sky. The castle defenses proved too formidable, forcing a retreat and leaving us wounded."
+ agot_burn_your_enemies_dragon_raid_event.0003.a:0 "Curse their archers!"

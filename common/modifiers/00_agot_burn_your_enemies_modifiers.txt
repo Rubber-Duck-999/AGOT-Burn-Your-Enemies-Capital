@@ -1,4 +1,4 @@
-dragon_burned_devastation = {
+agot_burn_your_enemies_dragon_burned_devastation = {
     icon = county_modifier_burned
     county_opinion = -30
     development_growth_factor = -0.75
@@ -6,7 +6,7 @@ dragon_burned_devastation = {
     levy_size = -0.50
 }
 
-holding_dragon_scathed = {
+agot_burn_your_enemies_holding_dragon_scathed = {
     icon = holding_modifier_damaged
     fort_level = -3
     garrison_size = -0.50

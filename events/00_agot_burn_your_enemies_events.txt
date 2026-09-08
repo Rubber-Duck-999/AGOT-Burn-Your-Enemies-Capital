@@ -1,11 +1,11 @@
-﻿namespace = custom_dragon_raid
+﻿namespace = agot_burn_your_enemies_dragon_raid
 
 # Main Raid Event
-custom_dragon_raid.0001 = {
+agot_burn_your_enemies_dragon_raid.0001 = {
     type = character_event
     window = agot_dragon_character_event
-    title = "Dragon Raid: Flight to [target_capital_county.GetName]"
-    desc = "I mount [my_dragon.GetName] and take to the skies, soaring over borders toward the capital of [recipient.GetTitledName]. Below lies their seat of power, [target_capital_county.GetName].\n\nShall I unleash dragonfire and reduce it to ruin?"
+    title = "Dragon Raid: Flight to [agot_burn_your_enemies_target_capital_county.GetName]"
+    desc = "I mount [agot_burn_your_enemies_my_dragon.GetName] and take to the skies, soaring over borders toward the capital of [recipient.GetTitledName]. Below lies their seat of power, [agot_burn_your_enemies_target_capital_county.GetName].\n\nShall I unleash dragonfire and reduce it to ruin?"
     theme = dragon
     override_background = {
         reference = burning_building
@@ -31,20 +31,20 @@ custom_dragon_raid.0001 = {
         outfit_tags = { dragonrider }
     }
     left_portrait = {
-        character = scope:my_dragon
+        character = scope:agot_burn_your_enemies_my_dragon
     }
 
     immediate = {
         # Fallback scopes to prevent human-as-dragon bug if tested via console
         if = {
-            limit = { NOT = { exists = scope:my_dragon } }
-            var:current_dragon = { save_scope_as = my_dragon }
+            limit = { NOT = { exists = scope:agot_burn_your_enemies_my_dragon } }
+            var:current_dragon = { save_scope_as = agot_burn_your_enemies_my_dragon }
         }
         if = {
-            limit = { NOT = { exists = scope:target_capital_barony } }
+            limit = { NOT = { exists = scope:agot_burn_your_enemies_target_capital_barony } }
             scope:recipient.capital_county = {
-                save_scope_as = target_capital_county
-                barony = { save_scope_as = target_capital_barony }
+                save_scope_as = agot_burn_your_enemies_target_capital_county
+                barony = { save_scope_as = agot_burn_your_enemies_target_capital_barony }
             }
         }
         agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
@@ -52,10 +52,10 @@ custom_dragon_raid.0001 = {
 
     # OPTION 1: Dracarys (Turn holding into AGOT Ruin)
     option = {
-        name = "Dracarys! Burn [target_capital_county.GetName] to ruins!"
+        name = "Dracarys! Burn [agot_burn_your_enemies_target_capital_county.GetName] to ruins!"
         
         # FIX: Scope to the PROVINCE of the capital county
-        scope:target_capital_county = {
+        scope:agot_burn_your_enemies_target_capital_county = {
             # Turn the capital province holding into a Ruin
             title_province = {
                 set_holding_type = ruin_holding
@@ -64,7 +64,7 @@ custom_dragon_raid.0001 = {
             # Wipe development and set devastation
             change_development_level = -100
             add_county_modifier = {
-                modifier = dragon_burned_devastation
+                modifier = agot_burn_your_enemies_dragon_burned_devastation
                 years = 10
             }
         }
@@ -73,7 +73,7 @@ custom_dragon_raid.0001 = {
         scope:recipient = {
             death = {
                 death_reason = death_dragon_siege
-                killer = scope:my_dragon
+                killer = scope:agot_burn_your_enemies_my_dragon
             }
         }
 
@@ -81,7 +81,7 @@ custom_dragon_raid.0001 = {
         play_music_cue = CK3AGOT_dragon_burn_holding
 
         trigger_event = {
-            id = custom_dragon_raid.0002
+            id = agot_burn_your_enemies_dragon_raid.0002
         }
     }
 
@@ -96,7 +96,7 @@ custom_dragon_raid.0001 = {
 }
 
 # Success Notification Event
-custom_dragon_raid.0002 = {
+agot_burn_your_enemies_dragon_raid.0002 = {
     type = character_event
     window = agot_dragon_character_event
     title = "Ashes and Ruin"
@@ -111,7 +111,7 @@ custom_dragon_raid.0002 = {
         animation = personality_bold
     }
     left_portrait = {
-        character = scope:my_dragon
+        character = scope:agot_burn_your_enemies_my_dragon
     }
 
     option = {
