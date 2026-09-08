@@ -29,6 +29,10 @@
                 text = agot_burn_your_enemies_actor_travelling
                 is_travelling = no
             }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_actor_cooldown
+                NOT = { has_character_flag = agot_burn_your_enemies_actor_cooldown }
+            }
         }
         scope:recipient = {
             custom_tooltip = {
@@ -38,6 +42,18 @@
             custom_tooltip = {
                 text = agot_burn_your_enemies_recipient_travelling
                 is_travelling = no
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_not_allied
+                NOT = { is_allied_to = scope:actor }
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_no_truce
+                NOT = { has_truce = scope:actor }
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_not_in_your_realm
+                NOT = { is_vassal_or_below_of = scope:actor }
             }
             custom_tooltip = {
                 text = agot_burn_your_enemies_capital_already_ruined
@@ -66,12 +82,15 @@
         }
     }
 
-    cooldown = { years = 20 }
 	auto_accept = yes
     use_diplomatic_range = yes
 
     on_accept = {
         scope:actor = {
+            add_character_flag = {
+                flag = agot_burn_your_enemies_actor_cooldown
+                years = 20
+            }
             var:current_dragon = {
                 save_scope_as = agot_burn_your_enemies_my_dragon
             }

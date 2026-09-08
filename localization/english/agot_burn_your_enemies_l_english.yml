@@ -11,8 +11,12 @@
  agot_burn_your_enemies_capital_already_ruined:0 "This capital is already a ruin."
  agot_burn_your_enemies_actor_at_war:0 "You are currently at war."
  agot_burn_your_enemies_actor_travelling:0 "You are currently travelling."
+ agot_burn_your_enemies_actor_cooldown:0 "You recently burned a capital and must wait 20 years before using this again."
  agot_burn_your_enemies_recipient_at_war:0 "This ruler is currently at war."
  agot_burn_your_enemies_recipient_travelling:0 "This ruler is currently travelling."
+ agot_burn_your_enemies_not_allied:0 "You cannot burn the capital of an ally."
+ agot_burn_your_enemies_no_truce:0 "You cannot burn the capital of someone with whom you have a truce."
+ agot_burn_your_enemies_not_in_your_realm:0 "You cannot burn the capital of someone in your realm."
  agot_burn_your_enemies_not_your_rival:0 "This ruler is not your rival."
  agot_burn_your_enemies_no_court_dragonrider:0 "There are dragonriders in this court."
  
