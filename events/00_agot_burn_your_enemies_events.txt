@@ -135,25 +135,16 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                     limit = {
                         is_alive = yes
                     }
-                    20 = {
-                        death = {
-                            death_reason = death_dragon_fire
-                            killer = scope:agot_burn_your_enemies_my_dragon
-                        }
-                    }
-                    40 = {
+                    50 = {
                         add_trait = wounded_2
+                        add_trait = burned
                         add_trait_xp = {
                             trait = burned
                             value = 50
                         }
-                        add_dread = 50
-                        add_stress = 50
                     }
-                    40 = {
+                    50 = {
                         add_trait = wounded_1
-                        add_dread = 25
-                        add_stress = 25
                     }
                 }
             }
@@ -163,6 +154,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
             random_list = {
                 40 = {
                     add_trait = wounded_2
+                    add_trait = burned
                     add_trait_xp = {
                         trait = burned
                         value = 50
