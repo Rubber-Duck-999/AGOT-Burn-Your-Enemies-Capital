@@ -56,13 +56,42 @@ agot_burn_your_enemies_dragon_raid.0001 = {
     option = {
         name = agot_burn_your_enemies_dragon_raid.0001.minor
         scope:agot_burn_your_enemies_target_capital_county = {
-            agot_dragon_siege_fort_damage_minor_effect = yes
             add_county_modifier = {
                 modifier = agot_burn_your_enemies_holding_dragon_scathed
                 years = 5
             }
         }
         agot_burn_your_enemies_minor_scorpion_damage_effect = yes
+
+        scope:recipient = {
+            add_trait = wounded_1
+            add_trait = burned
+            add_trait_xp = {
+                trait = burned
+                value = 30
+            }
+            add_opinion = {
+                target = scope:actor
+                modifier = agot_burn_your_enemies_dynasty_feud
+            }
+            if = {
+                limit = {
+                    can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
+                }
+                set_relation_rival = {
+                    target = scope:actor
+                    reason = rival_burned_my_capital
+                }
+            }
+        }
+
+        scope:actor = {
+            add_trait = wounded_1
+            add_dread = 25
+            add_stress = 25
+            add_prestige = -500
+            add_piety = -500
+        }
 
         trigger_event = {
             id = agot_burn_your_enemies_dragon_raid.0002
@@ -73,7 +102,6 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         name = agot_burn_your_enemies_dragon_raid.0001.major
 
         scope:agot_burn_your_enemies_target_capital_county = {
-            agot_dragon_siege_fort_damage_major_effect = yes
             change_development_level = -50
             add_county_modifier = {
                 modifier = agot_burn_your_enemies_dragon_burned_devastation
@@ -102,11 +130,38 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                     reason = rival_burned_my_capital
                 }
             }
+            every_courtier_or_guest = {
+                random_list = {
+                    limit = {
+                        is_alive = yes
+                    }
+                    20 = {
+                        death = {
+                            death_reason = death_dragon_fire
+                            killer = scope:agot_burn_your_enemies_my_dragon
+                        }
+                    }
+                    40 = {
+                        add_trait = wounded_2
+                        add_trait_xp = {
+                            trait = burned
+                            value = 50
+                        }
+                        add_dread = 50
+                        add_stress = 50
+                    }
+                    40 = {
+                        add_trait = wounded_1
+                        add_dread = 25
+                        add_stress = 25
+                    }
+                }
+            }
         }
 
         scope:actor = {
             random_list = {
-                25 = {
+                40 = {
                     add_trait = wounded_2
                     add_trait_xp = {
                         trait = burned
@@ -115,7 +170,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                     add_dread = 50
                     add_stress = 50
                 }
-                75 = {
+                60 = {
                     add_trait = wounded_1
                     add_dread = 25
                     add_stress = 25
@@ -140,7 +195,6 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
 
         scope:agot_burn_your_enemies_target_capital_county = {
-            agot_dragon_siege_fort_damage_massive_effect = yes
             change_development_level = -100
             add_county_modifier = {
                 modifier = agot_burn_your_enemies_dragon_burned_devastation
@@ -159,63 +213,15 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                 limit = {
                     is_alive = yes
                 }
-                random_list = {
-                    70 = {
-                        death = {
-                            death_reason = death_dragon_fire
-                            killer = scope:agot_burn_your_enemies_my_dragon
-                        }
-                    }
-                    30 = {
-                        add_trait = wounded_2
-                        add_trait = burned
-                        add_trait_xp = {
-                            trait = burned
-                            value = 100
-                        }
-                        add_opinion = {
-                            target = scope:actor
-                            modifier = agot_burn_your_enemies_liege_dynasty_feud
-                        }
-                        if = {
-                            limit = {
-                                can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
-                            }
-                            set_relation_rival = {
-                                target = scope:actor
-                                reason = rival_burned_my_liege_capital
-                            }
-                        }
-                    }
+                death = {
+                    death_reason = death_dragon_fire
+                    killer = scope:agot_burn_your_enemies_my_dragon
                 }
             }
             random_list = {
-                80 = {
-                    death = {
-                        death_reason = death_dragon_fire
-                        killer = scope:agot_burn_your_enemies_my_dragon
-                    }
-                }
-                20 = {
-                    add_trait = wounded_2
-                    add_trait = burned
-                    add_trait_xp = {
-                        trait = burned
-                        value = 100
-                    }
-                    add_opinion = {
-                        target = scope:actor
-                        modifier = agot_burn_your_enemies_dynasty_feud
-                    }
-                    if = {
-                        limit = {
-                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
-                        }
-						set_relation_rival = {
-							target = scope:actor
-							reason = rival_burned_my_capital
-						}
-                    }
+                death = {
+                    death_reason = death_dragon_fire
+                    killer = scope:agot_burn_your_enemies_my_dragon
                 }
             }
         }
@@ -249,17 +255,9 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         if = {
             limit = { has_trait = craven }
-            add_trait_xp = {
-                trait = craven
-                value = 50
-            }
         }
         else {
             add_trait = craven
-            add_trait_xp = {
-                trait = craven
-                value = 50
-            }
         }
 
         random_list = {
