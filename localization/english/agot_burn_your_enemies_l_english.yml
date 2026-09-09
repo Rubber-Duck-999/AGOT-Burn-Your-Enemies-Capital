@@ -31,7 +31,7 @@
  agot_burn_your_enemies_dragon_raid.0001.minor:0 "Scorch [agot_burn_your_enemies_target_capital_county.GetName]"
  agot_burn_your_enemies_dragon_raid.0001.major:0 "Burn [agot_burn_your_enemies_target_capital_county.GetName]"
  agot_burn_your_enemies_dragon_raid.0001.ruin:0 "Dracarys! Reduce [agot_burn_your_enemies_target_capital_county.GetName] to ruins!"
- agot_burn_your_enemies_dragon_raid.0001.cancel:0 "Turn back..."
+ agot_burn_your_enemies_dragon_raid.0001.cancel:0 "Turn back... (let's hope we don't get shamed for this)"
  
  agot_burn_your_enemies_dragon_raid.0002.t:0 "After the Dragonfire"
  agot_burn_your_enemies_dragon_raid.0002.desc:0 "Dragonfire rained down upon [agot_burn_your_enemies_target_capital_county.GetName]. Towers cracked, garrisons scattered, and the capital bears the scars of the attack."

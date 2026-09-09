@@ -104,6 +104,27 @@ agot_burn_your_enemies_dragon_raid.0001 = {
             }
         }
 
+        scope:actor = {
+            random_list = {
+                25 = {
+                    add_trait = wounded_2
+                    add_trait_xp = {
+                        trait = burned
+                        value = 50
+                    }
+                    add_dread = 50
+                    add_stress = 50
+                }
+                75 = {
+                    add_trait = wounded_1
+                    add_dread = 25
+                    add_stress = 25
+                }
+            }
+            add_prestige = -10000
+            add_piety = -1000
+        }
+
         trigger_event = {
             id = agot_burn_your_enemies_dragon_raid.0002
         }
@@ -208,6 +229,10 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                 }
                 80 = {
                     add_trait = wounded_2
+                    add_dread = 100
+                    add_stress = 100
+                    add_prestige = -10000
+                    add_piety = -1000
                 }
             }
         }
@@ -217,11 +242,44 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
 
         add_internal_flag = dangerous
-        add_prestige = -10000
     }
 
     option = {
         name = agot_burn_your_enemies_dragon_raid.0001.cancel
+
+        if = {
+            limit = { has_trait = craven }
+            add_trait_xp = {
+                trait = craven
+                value = 50
+            }
+        }
+        else {
+            add_trait = craven
+            add_trait_xp = {
+                trait = craven
+                value = 50
+            }
+        }
+
+        random_list = {
+            50 = {
+                add_opinion = {
+                    target = scope:recipient
+                    modifier = agot_burn_your_enemies_tried_to_kill_opinion
+                }
+            }
+            20 = {
+                add_stress = 100
+                add_dread = -50
+            }
+            10 = {
+                agot_burn_your_enemies_minor_scorpion_damage_effect
+            }
+            10 = {
+                agot_burn_your_enemies_major_scorpion_damage_effect
+            }
+        }
     }
 
     after = {
@@ -251,7 +309,5 @@ agot_burn_your_enemies_dragon_raid.0002 = {
 
     option = {
         name = agot_burn_your_enemies_dragon_raid.0002.a
-        add_dread = 100
-        add_stress = 100
     }
 }
