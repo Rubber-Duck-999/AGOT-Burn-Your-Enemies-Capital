@@ -2,4 +2,4 @@
 
 Aegon the Conqueror destroyed Harrenhal with fire, if your dragon is large enough so can you!
 
-![Dragon](./thumbnail.jpg)
+![Dragon](./mod_files/thumbnail.jpg)
