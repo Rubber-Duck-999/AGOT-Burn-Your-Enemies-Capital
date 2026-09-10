@@ -9,11 +9,9 @@
                 has_trait = dragonrider
                 has_trait = vengeful
             }
-            is_imprisoned = no
         }
         scope:recipient = {
             is_landed = yes
-            is_imprisoned = no
             exists = primary_title
             exists = capital_county
         }
@@ -22,8 +20,16 @@
     is_valid_showing_failures_only = {
         scope:actor = {
             custom_tooltip = {
+                text = agot_burn_your_enemies_actor_vengeful_trait
+                has_trait = vengeful
+            }
+            custom_tooltip = {
                 text = agot_burn_your_enemies_actor_at_war
                 is_at_war = no
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_actor_is_imprisoned
+                is_imprisoned = no
             }
             custom_tooltip = {
                 text = agot_burn_your_enemies_actor_travelling
@@ -42,6 +48,10 @@
             custom_tooltip = {
                 text = agot_burn_your_enemies_recipient_travelling
                 is_travelling = no
+            }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_receipient_is_imprisoned
+                is_imprisoned = no
             }
             custom_tooltip = {
                 text = agot_burn_your_enemies_not_allied
