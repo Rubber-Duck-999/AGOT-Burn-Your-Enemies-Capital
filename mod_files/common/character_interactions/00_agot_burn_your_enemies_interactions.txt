@@ -142,7 +142,6 @@
             scope:actor = {
                 start_travel_plan = {
                     destination = scope:agot_burn_your_enemies_target_capital_barony
-                    travel_leader = scope:actor
                     players_use_planner = no
                     on_arrival_event = agot_burn_your_enemies_dragon_raid.0001
                     on_arrival_destinations = all_but_last
