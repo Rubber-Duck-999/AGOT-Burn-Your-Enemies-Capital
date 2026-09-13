@@ -143,6 +143,26 @@ agot_burn_your_enemies_dragon_raid.0002 = {
 
     option = {
         name = agot_burn_your_enemies_dragon_raid.0002.minor
+
+        ai_chance = {
+            base = 40
+            modifier = {
+                factor = 0.4
+                scope:actor = { has_trait = wrathful }
+            }
+            modifier = {
+                factor = 0.4
+                scope:actor = { has_trait = callous }
+            }
+            modifier = {
+                factor = 1.5
+                scope:actor = { has_trait = compassionate }
+            }
+            modifier = {
+                factor = 1.5
+                scope:actor = { has_trait = content }
+            }
+        }
         scope:agot_burn_your_enemies_target_capital_county = {
             add_county_modifier = {
                 modifier = agot_burn_your_enemies_holding_dragon_scathed
@@ -188,6 +208,26 @@ agot_burn_your_enemies_dragon_raid.0002 = {
 
     option = {
         name = agot_burn_your_enemies_dragon_raid.0002.major
+
+        ai_chance = {
+            base = 30
+            modifier = {
+                factor = 1.6
+                scope:actor = { has_trait = wrathful }
+            }
+            modifier = {
+                factor = 1.6
+                scope:actor = { has_trait = callous }
+            }
+            modifier = {
+                factor = 1.3
+                scope:actor = { has_trait = arrogant }
+            }
+            modifier = {
+                factor = 0.5
+                scope:actor = { has_trait = compassionate }
+            }
+        }
 
         scope:agot_burn_your_enemies_target_capital_county = {
             change_development_level = -50
@@ -274,6 +314,31 @@ agot_burn_your_enemies_dragon_raid.0002 = {
             }
         }
 
+        ai_chance = {
+            base = 10
+            modifier = {
+                factor = 2
+                scope:actor = {
+                    AND = {
+                        has_trait = wrathful
+                        has_trait = callous
+                    }
+                }
+            }
+            modifier = {
+                factor = 1.5
+                scope:actor = { dread > 70 }
+            }
+            modifier = {
+                factor = 0.3
+                scope:actor = { has_trait = compassionate }
+            }
+            modifier = {
+                factor = 0.3
+                scope:actor = { has_trait = forgiving }
+            }
+        }
+
         scope:agot_burn_your_enemies_target_capital_county = {
             change_development_level = -100
             add_county_modifier = {
@@ -342,6 +407,26 @@ agot_burn_your_enemies_dragon_raid.0002 = {
 
     option = {
         name = agot_burn_your_enemies_dragon_raid.0002.cancel
+
+        ai_chance = {
+            base = 15
+            modifier = {
+                factor = 3
+                scope:actor = { has_trait = compassionate }
+            }
+            modifier = {
+                factor = 2
+                scope:actor = { has_trait = forgiving }
+            }
+            modifier = {
+                factor = 0.3
+                scope:actor = { has_trait = wrathful }
+            }
+            modifier = {
+                factor = 0.3
+                scope:actor = { has_trait = callous }
+            }
+        }
 
         if = {
             limit = { has_trait = craven }

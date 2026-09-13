@@ -15,3 +15,20 @@ agot_burn_your_enemies_dragon_defense_score = {
         multiply = 5
     }
 }
+
+agot_burn_your_enemies_ai_dragon_attack_score = {
+    value = scope:actor.prowess
+    if = {
+        limit = { scope:actor = { exists = var:current_dragon } }
+        add = scope:actor.var:current_dragon.dragon_combat_effectiveness
+    }
+}
+
+agot_burn_your_enemies_ai_dragon_defense_score = {
+    value = 0
+    if = {
+        limit = { exists = scope:recipient.capital_province }
+        value = scope:recipient.capital_province.fort_level
+        multiply = 5
+    }
+}
