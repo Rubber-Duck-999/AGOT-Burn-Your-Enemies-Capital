@@ -95,6 +95,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         trigger_event = {
             id = agot_burn_your_enemies_dragon_raid.0002
+            days = { 2 5}
         }
     }
 
@@ -174,6 +175,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         trigger_event = {
             id = agot_burn_your_enemies_dragon_raid.0002
+            days = { 2 5 }
         }
     }
 
@@ -246,6 +248,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
             }
             trigger_event = {
                 id = agot_burn_your_enemies_dragon_raid.0002
+                days = { 2 5 }
             }
         }
 

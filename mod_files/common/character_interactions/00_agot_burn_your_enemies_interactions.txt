@@ -120,9 +120,10 @@
             }
         }
 
-            scope:actor = {
-                trigger_event = {
-                    id = agot_burn_your_enemies_dragon_raid.0001
+        scope:actor = {
+            trigger_event = {
+                id = agot_burn_your_enemies_dragon_raid.0001
+                days = { 10 20 }
             }
         }
     }
