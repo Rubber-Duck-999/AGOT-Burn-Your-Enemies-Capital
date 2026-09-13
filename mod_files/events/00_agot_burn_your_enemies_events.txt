@@ -1,16 +1,104 @@
 ﻿namespace = agot_burn_your_enemies_dragon_raid
 
-# Main Raid Event
 agot_burn_your_enemies_dragon_raid.0001 = {
     type = character_event
     window = agot_dragon_character_event
     title = agot_burn_your_enemies_dragon_raid.0001.t
     desc = agot_burn_your_enemies_dragon_raid.0001.desc
     theme = dragon
+
     override_background = {
         reference = burning_building
     }
-    
+
+    immediate = {
+        scope:actor = {
+            var:agot_burn_your_enemies_target_var = {
+                save_scope_as = agot_burn_your_enemies_target
+            }
+            var:agot_burn_your_enemies_my_dragon_var = {
+                save_scope_as = agot_burn_your_enemies_my_dragon
+            }
+            var:agot_burn_your_enemies_target_capital_county_var = {
+                save_scope_as = agot_burn_your_enemies_target_capital_county
+            }
+            var:agot_burn_your_enemies_target_capital_barony_var = {
+                save_scope_as = agot_burn_your_enemies_target_capital_barony
+            }
+        }
+
+        scope:agot_burn_your_enemies_target = {
+            save_scope_as = recipient
+        }
+
+        agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
+    }
+
+    left_portrait = {
+        character = scope:agot_burn_your_enemies_my_dragon
+    }
+
+    right_portrait = {
+        character = root
+        camera = camera_dragonrider_flying_event_front
+        animation = dragon_main
+        outfit_tags = { dragonrider }
+    }
+
+    option = {
+        name = agot_burn_your_enemies_dragon_raid.0001.proceed
+        trigger = {
+            agot_burn_your_enemies_raid_still_valid_trigger = yes
+        }
+
+        if = {
+            limit = {
+                scope:agot_burn_your_enemies_target_capital_barony = {
+                    has_stationed_scorpions = yes
+                }
+                agot_burn_your_enemies_dragon_attack_score < agot_burn_your_enemies_dragon_defense_score
+            }
+            trigger_event = {
+                id = agot_burn_your_enemies_dragon_raid.0004
+            }
+        }
+        else = {
+            trigger_event = {
+                id = agot_burn_your_enemies_dragon_raid.0002
+            }
+        }
+    }
+
+    option = {
+        name = agot_burn_your_enemies_dragon_raid.0001.aborted
+        trigger = {
+            NOT = { agot_burn_your_enemies_raid_still_valid_trigger = yes }
+        }
+
+        add_dread = -10
+        add_stress = 10
+
+        scope:actor = {
+            agot_burn_your_enemies_clear_raid_variables_effect = yes
+        }
+    }
+
+    after = {
+        agot_clear_dragon_animation_flags = yes
+    }
+}
+
+# Main Raid Event
+agot_burn_your_enemies_dragon_raid.0002 = {
+    type = character_event
+    window = agot_dragon_character_event
+    title = agot_burn_your_enemies_dragon_raid.0002.t
+    desc = agot_burn_your_enemies_dragon_raid.0002.desc
+    theme = dragon
+    override_background = {
+        reference = burning_building
+    }
+
     # AGOT Fire & Spark Shaders
     widgets = {
         widget = {
@@ -54,7 +142,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0001.minor
+        name = agot_burn_your_enemies_dragon_raid.0002.minor
         scope:agot_burn_your_enemies_target_capital_county = {
             add_county_modifier = {
                 modifier = agot_burn_your_enemies_holding_dragon_scathed
@@ -94,12 +182,12 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
 
         trigger_event = {
-            id = agot_burn_your_enemies_dragon_raid.0002
+            id = agot_burn_your_enemies_dragon_raid.0003
         }
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0001.major
+        name = agot_burn_your_enemies_dragon_raid.0002.major
 
         scope:agot_burn_your_enemies_target_capital_county = {
             change_development_level = -50
@@ -173,12 +261,12 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
 
         trigger_event = {
-            id = agot_burn_your_enemies_dragon_raid.0002
+            id = agot_burn_your_enemies_dragon_raid.0003
         }
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0001.ruin
+        name = agot_burn_your_enemies_dragon_raid.0002.ruin
 
         trigger = {
             scope:agot_burn_your_enemies_my_dragon = {
@@ -245,7 +333,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
                 }
             }
             trigger_event = {
-                id = agot_burn_your_enemies_dragon_raid.0002
+                id = agot_burn_your_enemies_dragon_raid.0003
             }
         }
 
@@ -253,7 +341,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0001.cancel
+        name = agot_burn_your_enemies_dragon_raid.0002.cancel
 
         if = {
             limit = { has_trait = craven }
@@ -287,11 +375,11 @@ agot_burn_your_enemies_dragon_raid.0001 = {
     }
 }
 
-agot_burn_your_enemies_dragon_raid.0002 = {
+agot_burn_your_enemies_dragon_raid.0003 = {
     type = character_event
     window = agot_dragon_character_event
-    title = agot_burn_your_enemies_dragon_raid.0002.t
-    desc = agot_burn_your_enemies_dragon_raid.0002.desc
+    title = agot_burn_your_enemies_dragon_raid.0003.t
+    desc = agot_burn_your_enemies_dragon_raid.0003.desc
     theme = dragon
 
     override_background = {
@@ -308,7 +396,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0002.a
+        name = agot_burn_your_enemies_dragon_raid.0003.a
 
         scope:actor = {
             agot_burn_your_enemies_clear_raid_variables_effect = yes
@@ -316,7 +404,12 @@ agot_burn_your_enemies_dragon_raid.0002 = {
     }
 }
 
-agot_burn_your_enemies_dragon_raid.0003 = {
+# Fires instead of 0002 when the capital's stationed scorpions outmatch the
+# dragon's attack score (see agot_burn_your_enemies_dragon_raid.0001, option
+# "proceed"). The raid never reaches the point of burning anything - the
+# dragon is driven off. Loc keys keep the original "_event.0003" naming from
+# the mod's original (pre-existing, previously unused) localization.
+agot_burn_your_enemies_dragon_raid.0004 = {
     type = character_event
     window = agot_dragon_character_event
     title = agot_burn_your_enemies_dragon_raid_event.0003.t
@@ -352,11 +445,14 @@ agot_burn_your_enemies_dragon_raid.0003 = {
     }
 }
 
-agot_burn_your_enemies_dragon_raid.0004 = {
+# Fired by the scripted scorpion damage effects
+# (00_agot_burn_your_enemies_damage_effects.txt) whenever a scorpion roll
+# actually lands a hit on the dragon.
+agot_burn_your_enemies_dragon_raid.0005 = {
     type = character_event
     window = agot_dragon_character_event
-    title = agot_burn_your_enemies_dragon_raid.0004.t
-    desc = agot_burn_your_enemies_dragon_raid.0004.desc
+    title = agot_burn_your_enemies_dragon_raid.0005.t
+    desc = agot_burn_your_enemies_dragon_raid.0005.desc
     theme = dragon
 
     override_background = {
@@ -373,88 +469,6 @@ agot_burn_your_enemies_dragon_raid.0004 = {
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0004.a
-    }
-}
-
-agot_burn_your_enemies_dragon_raid.0005 = {
-    type = character_event
-    window = agot_dragon_character_event
-    title = agot_burn_your_enemies_dragon_raid.0005.t
-    desc = agot_burn_your_enemies_dragon_raid.0005.desc
-    theme = dragon
-
-    override_background = {
-        reference = burning_building
-    }
-
-    immediate = {
-        scope:actor = {
-            var:agot_burn_your_enemies_target_var = {
-                save_scope_as = agot_burn_your_enemies_target
-            }
-            var:agot_burn_your_enemies_my_dragon_var = {
-                save_scope_as = agot_burn_your_enemies_my_dragon
-            }
-            var:agot_burn_your_enemies_target_capital_county_var = {
-                save_scope_as = agot_burn_your_enemies_target_capital_county
-            }
-            var:agot_burn_your_enemies_target_capital_barony_var = {
-                save_scope_as = agot_burn_your_enemies_target_capital_barony
-            }
-        }
-
-        scope:agot_burn_your_enemies_target = {
-            save_scope_as = recipient
-        }
-    }
-
-    left_portrait = {
-        character = scope:agot_burn_your_enemies_my_dragon
-    }
-
-    right_portrait = {
-        character = root
-        camera = camera_dragonrider_flying_event_front
-        animation = dragon_main
-        outfit_tags = { dragonrider }
-    }
-
-    option = {
-        name = agot_burn_your_enemies_dragon_raid.0005.proceed
-        trigger = {
-            agot_burn_your_enemies_raid_still_valid_trigger = yes
-        }
-
-        if = {
-            limit = {
-                scope:agot_burn_your_enemies_target_capital_barony = {
-                    has_stationed_scorpions = yes
-                }
-                agot_burn_your_enemies_dragon_attack_score < agot_burn_your_enemies_dragon_defense_score
-            }
-            trigger_event = {
-                id = agot_burn_your_enemies_dragon_raid.0003
-            }
-        }
-        else = {
-            trigger_event = {
-                id = agot_burn_your_enemies_dragon_raid.0001
-            }
-        }
-    }
-
-    option = {
-        name = agot_burn_your_enemies_dragon_raid.0005.aborted
-        trigger = {
-            NOT = { agot_burn_your_enemies_raid_still_valid_trigger = yes }
-        }
-
-        add_dread = -10
-        add_stress = 10
-
-        scope:actor = {
-            agot_burn_your_enemies_clear_raid_variables_effect = yes
-        }
+        name = agot_burn_your_enemies_dragon_raid.0005.a
     }
 }

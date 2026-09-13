@@ -118,7 +118,6 @@
             }
         }
 
-
         scope:recipient = {
             capital_county = {
                 save_scope_as = agot_burn_your_enemies_target_capital_county
@@ -145,8 +144,7 @@
                     destination = scope:agot_burn_your_enemies_target_capital_barony
                     travel_leader = scope:actor
                     players_use_planner = no
-                    return_trip = yes
-                    on_arrival_event = agot_burn_your_enemies_dragon_raid.0005
+                    on_arrival_event = agot_burn_your_enemies_dragon_raid.0001
                     on_arrival_destinations = all_but_last
                     save_scope_as = agot_burn_your_enemies_travel_plan
                 }

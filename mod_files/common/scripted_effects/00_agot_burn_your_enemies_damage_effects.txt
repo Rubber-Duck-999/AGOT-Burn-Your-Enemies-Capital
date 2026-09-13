@@ -18,7 +18,7 @@
 				# NEW: show the dragon taking the hit
 				scope:actor = {
 					trigger_event = {
-						id = agot_burn_your_enemies_dragon_raid.0004
+						id = agot_burn_your_enemies_dragon_raid.0005
 					}
 				}
 			}
@@ -46,7 +46,7 @@ agot_burn_your_enemies_major_scorpion_damage_effect = {
 				# NEW: show the dragon taking the hit
 				scope:actor = {
 					trigger_event = {
-						id = agot_burn_your_enemies_dragon_raid.0004
+						id = agot_burn_your_enemies_dragon_raid.0005
 					}
 				}
 			}
@@ -60,7 +60,7 @@ agot_burn_your_enemies_major_scorpion_damage_effect = {
 				# NEW: show the dragon taking the hit
 				scope:actor = {
 					trigger_event = {
-						id = agot_burn_your_enemies_dragon_raid.0004
+						id = agot_burn_your_enemies_dragon_raid.0005
 					}
 				}
 			}
