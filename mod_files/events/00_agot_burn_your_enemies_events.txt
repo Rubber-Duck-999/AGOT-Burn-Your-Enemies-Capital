@@ -309,6 +309,10 @@ agot_burn_your_enemies_dragon_raid.0002 = {
 
     option = {
         name = agot_burn_your_enemies_dragon_raid.0002.a
+
+        scope:actor = {
+            agot_burn_your_enemies_clear_raid_variables_effect = yes
+        }
     }
 }
 
@@ -341,6 +345,10 @@ agot_burn_your_enemies_dragon_raid.0003 = {
 
         add_dread = 10
         add_stress = 15
+
+        scope:actor = {
+            agot_burn_your_enemies_clear_raid_variables_effect = yes
+        }
     }
 }
 
@@ -378,6 +386,27 @@ agot_burn_your_enemies_dragon_raid.0005 = {
 
     override_background = {
         reference = burning_building
+    }
+
+    immediate = {
+        scope:actor = {
+            var:agot_burn_your_enemies_target_var = {
+                save_scope_as = agot_burn_your_enemies_target
+            }
+            var:agot_burn_your_enemies_my_dragon_var = {
+                save_scope_as = agot_burn_your_enemies_my_dragon
+            }
+            var:agot_burn_your_enemies_target_capital_county_var = {
+                save_scope_as = agot_burn_your_enemies_target_capital_county
+            }
+            var:agot_burn_your_enemies_target_capital_barony_var = {
+                save_scope_as = agot_burn_your_enemies_target_capital_barony
+            }
+        }
+
+        scope:agot_burn_your_enemies_target = {
+            save_scope_as = recipient
+        }
     }
 
     left_portrait = {
@@ -423,5 +452,9 @@ agot_burn_your_enemies_dragon_raid.0005 = {
 
         add_dread = -10
         add_stress = 10
+
+        scope:actor = {
+            agot_burn_your_enemies_clear_raid_variables_effect = yes
+        }
     }
 }

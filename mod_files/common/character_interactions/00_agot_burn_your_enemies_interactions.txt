@@ -105,13 +105,21 @@
                 flag = agot_burn_your_enemies_actor_cooldown
                 years = 20
             }
-            var:current_dragon = {
-                save_scope_as = agot_burn_your_enemies_my_dragon
+            if = {
+                limit = { exists = var:current_dragon }
+                set_variable = {
+                    name = agot_burn_your_enemies_my_dragon_var
+                    value = var:current_dragon
+                }
+            }
+            set_variable = {
+                name = agot_burn_your_enemies_target_var
+                value = scope:recipient
             }
         }
 
+
         scope:recipient = {
-            save_scope_as = agot_burn_your_enemies_target
             capital_county = {
                 save_scope_as = agot_burn_your_enemies_target_capital_county
             }
@@ -121,16 +129,35 @@
         }
 
         scope:actor = {
-            start_travel_plan = {
-                destination = scope:agot_burn_your_enemies_target_capital_barony
-                on_arrival = {
-                    trigger_event = {
-                        id = agot_burn_your_enemies_dragon_raid.0005
-                    }
+            set_variable = {
+                name = agot_burn_your_enemies_target_capital_county_var
+                value = scope:agot_burn_your_enemies_target_capital_county
+            }
+            set_variable = {
+                name = agot_burn_your_enemies_target_capital_barony_var
+                value = scope:agot_burn_your_enemies_target_capital_barony
+            }
+        }
+
+        hidden_effect = {
+            scope:actor = {
+                start_travel_plan = {
+                    destination = scope:agot_burn_your_enemies_target_capital_barony
+                    travel_leader = scope:actor
+                    players_use_planner = no
+                    return_trip = yes
+                    on_arrival_event = agot_burn_your_enemies_dragon_raid.0005
+                    on_arrival_destinations = all_but_last
+                    save_scope_as = agot_burn_your_enemies_travel_plan
                 }
+            }
+
+            scope:agot_burn_your_enemies_travel_plan = {
+                add_travel_option = dragon_flight_option
             }
         }
     }
+
 
     ai_will_do = {
         base = 0
