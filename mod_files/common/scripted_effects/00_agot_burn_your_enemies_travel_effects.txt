@@ -1,0 +1,6 @@
+﻿agot_burn_your_enemies_clear_raid_variables_effect = {
+    remove_variable = agot_burn_your_enemies_my_dragon_var
+    remove_variable = agot_burn_your_enemies_target_var
+    remove_variable = agot_burn_your_enemies_target_capital_county_var
+    remove_variable = agot_burn_your_enemies_target_capital_barony_var
+}

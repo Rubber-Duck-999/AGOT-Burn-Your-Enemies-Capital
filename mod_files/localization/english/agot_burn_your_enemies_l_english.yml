@@ -1,6 +1,5 @@
 ﻿l_english:
  death_burning_enemy_with_dragon:0 "died while burning an enemy with a dragon"
- agot_burn_your_enemies_actor_no_dragon:0 "You do not currently have a dragon."
  death_burning_enemy_with_dragon_killer:0 "was killed by [TARGET_CHARACTER.GetUIName] while burning an enemy with a dragon"
  rival_burned_my_capital:0 "[TARGET_CHARACTER.GetShortUIName|U] burned my capital with their dragon"
  agot_burn_your_enemies_dynasty_feud:0 "Burned My Capital"
@@ -15,6 +14,7 @@
  agot_burn_your_enemies_actor_travelling:0 "You are currently travelling."
  agot_burn_your_enemies_actor_is_imprisoned:0 "You are currently imprisoned."
  agot_burn_your_enemies_actor_cooldown:0 "You recently burned a capital and must wait 20 years before using this again."
+ agot_burn_your_enemies_actor_no_dragon:0 "You do not currently have a dragon."
  agot_burn_your_enemies_recipient_at_war:0 "This ruler is currently at war."
  agot_burn_your_enemies_receipient_is_imprisoned:0 "This ruler is currently imprisoned."
  agot_burn_your_enemies_recipient_travelling:0 "This ruler is currently travelling."
@@ -23,28 +23,33 @@
  agot_burn_your_enemies_not_in_your_realm:0 "You cannot burn the capital of someone in your realm."
  agot_burn_your_enemies_not_your_rival:0 "This ruler is not your rival."
  agot_burn_your_enemies_no_court_dragonrider:0 "There are dragonriders in this court."
- 
+
  agot_burn_your_enemies_dragon_burned_devastation:0 "Dragon Devastation"
  agot_burn_your_enemies_dragon_burned_devastation_desc:0 "This county was recently burned by dragonfire, destroying infrastructure and terrifying the populace."
- 
+
  agot_burn_your_enemies_holding_dragon_scathed:0 "Dragon Scathed Castle"
  agot_burn_your_enemies_holding_dragon_scathed_desc:0 "The walls and garrisons of this holding were melted and scattered by dragonfire."
- 
- agot_burn_your_enemies_dragon_raid.0001.t:0 "Burn Your Enemies Capital: Fly to [agot_burn_your_enemies_target_capital_county.GetName]"
- agot_burn_your_enemies_dragon_raid.0001.desc:0 "I mount [agot_burn_your_enemies_my_dragon.GetName] and take to the skies, soaring over borders toward the capital of [agot_burn_your_enemies_target.GetName]. Below lies their seat of power, [agot_burn_your_enemies_target_capital_county.GetName].\n\nShall I unleash dragonfire and reduce it to ruin?"
- agot_burn_your_enemies_dragon_raid.0001.minor:0 "Scorch [agot_burn_your_enemies_target_capital_county.GetName]"
- agot_burn_your_enemies_dragon_raid.0001.major:0 "Burn [agot_burn_your_enemies_target_capital_county.GetName]"
- agot_burn_your_enemies_dragon_raid.0001.ruin:0 "Dracarys! Reduce [agot_burn_your_enemies_target_capital_county.GetName] to ruins!"
- agot_burn_your_enemies_dragon_raid.0001.cancel:0 "Turn back... (let's hope we don't get shamed for this)"
- 
- agot_burn_your_enemies_dragon_raid.0002.t:0 "After the Dragonfire"
- agot_burn_your_enemies_dragon_raid.0002.desc:0 "Dragonfire rained down upon [agot_burn_your_enemies_target_capital_county.GetName]. Towers cracked, garrisons scattered, and the capital bears the scars of the attack."
- agot_burn_your_enemies_dragon_raid.0002.a:0 "Let all who oppose me burn."
- 
+
+ agot_burn_your_enemies_dragon_raid.0001.t:0 "The Flight Ends"
+ agot_burn_your_enemies_dragon_raid.0001.desc:0 "After days in the sky, [agot_burn_your_enemies_my_dragon.GetName] circles high above [agot_burn_your_enemies_target_capital_county.GetName]. Much can change in the course of a long flight."
+ agot_burn_your_enemies_dragon_raid.0001.proceed:0 "Dracarys. Begin the attack."
+ agot_burn_your_enemies_dragon_raid.0001.aborted:0 "The moment has passed. Turn back."
+
+ agot_burn_your_enemies_dragon_raid.0002.t:0 "Burn Your Enemies Capital"
+ agot_burn_your_enemies_dragon_raid.0002.desc:0 "Below me lies [agot_burn_your_enemies_target_capital_county.GetName], seat of power of [agot_burn_your_enemies_target.GetName]. [agot_burn_your_enemies_my_dragon.GetName] and I have travelled far enough.\n\nShall I unleash dragonfire and reduce it to ruin?"
+ agot_burn_your_enemies_dragon_raid.0002.minor:0 "Scorch [agot_burn_your_enemies_target_capital_county.GetName]"
+ agot_burn_your_enemies_dragon_raid.0002.major:0 "Burn [agot_burn_your_enemies_target_capital_county.GetName]"
+ agot_burn_your_enemies_dragon_raid.0002.ruin:0 "Dracarys! Reduce [agot_burn_your_enemies_target_capital_county.GetName] to ruins!"
+ agot_burn_your_enemies_dragon_raid.0002.cancel:0 "Turn back... (let's hope we don't get shamed for this)"
+
+ agot_burn_your_enemies_dragon_raid.0003.t:0 "After the Dragonfire"
+ agot_burn_your_enemies_dragon_raid.0003.desc:0 "Dragonfire rained down upon [agot_burn_your_enemies_target_capital_county.GetName]. Towers cracked, garrisons scattered, and the capital bears the scars of the attack."
+ agot_burn_your_enemies_dragon_raid.0003.a:0 "Let all who oppose me burn."
+
  agot_burn_your_enemies_dragon_raid_event.0003.t:0 "Repelled by Defenses"
- agot_burn_your_enemies_dragon_raid_event.0003.desc:0 "As we closed in on [recipient.GetCapitalLocation.GetName], scorpion bolts and archers filled the sky. The castle defenses proved too formidable, forcing a retreat and leaving us wounded."
+ agot_burn_your_enemies_dragon_raid_event.0003.desc:0 "As [agot_burn_your_enemies_my_dragon.GetName] circled above [recipient.GetCapitalLocation.GetName], scorpion bolts and archers filled the sky. The castle defenses proved too formidable, forcing a retreat and leaving us wounded."
  agot_burn_your_enemies_dragon_raid_event.0003.a:0 "Curse their archers!"
 
- agot_burn_your_enemies_dragon_raid.0004.t:0 "A Wounded Dragon"
- agot_burn_your_enemies_dragon_raid.0004.desc:0 "[agot_burn_your_enemies_my_dragon.GetName] roars in pain as a scorpion bolt finds its mark, tearing through wing and scale. Blood rains down over [agot_burn_your_enemies_target_capital_county.GetName] as we fight to stay aloft."
- agot_burn_your_enemies_dragon_raid.0004.a:0 "It will heal, in time."
+ agot_burn_your_enemies_dragon_raid.0005.t:0 "A Wounded Dragon"
+ agot_burn_your_enemies_dragon_raid.0005.desc:0 "[agot_burn_your_enemies_my_dragon.GetName] roars in pain as a scorpion bolt finds its mark, tearing through wing and scale. Blood rains down over [agot_burn_your_enemies_target_capital_county.GetName] as we fight to stay aloft."
+ agot_burn_your_enemies_dragon_raid.0005.a:0 "It will heal, in time."
