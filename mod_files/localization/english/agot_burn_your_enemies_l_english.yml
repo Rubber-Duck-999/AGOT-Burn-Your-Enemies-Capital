@@ -48,3 +48,8 @@
  agot_burn_your_enemies_dragon_raid.0004.t:0 "A Wounded Dragon"
  agot_burn_your_enemies_dragon_raid.0004.desc:0 "[agot_burn_your_enemies_my_dragon.GetName] roars in pain as a scorpion bolt finds its mark, tearing through wing and scale. Blood rains down over [agot_burn_your_enemies_target_capital_county.GetName] as we fight to stay aloft."
  agot_burn_your_enemies_dragon_raid.0004.a:0 "It will heal, in time."
+
+ agot_burn_your_enemies_dragon_raid.0005.t:0 "The Flight Ends"
+ agot_burn_your_enemies_dragon_raid.0005.desc:0 "After days in the sky, [agot_burn_your_enemies_my_dragon.GetName] circles high above [agot_burn_your_enemies_target_capital_county.GetName]. Much can change in the course of a long flight."
+ agot_burn_your_enemies_dragon_raid.0005.proceed:0 "Dracarys. Begin the attack."
+ agot_burn_your_enemies_dragon_raid.0005.aborted:0 "The moment has passed. Turn back."

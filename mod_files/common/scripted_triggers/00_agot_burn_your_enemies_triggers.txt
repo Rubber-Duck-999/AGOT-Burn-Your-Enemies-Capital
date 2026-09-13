@@ -1,0 +1,27 @@
+﻿agot_burn_your_enemies_raid_still_valid_trigger = {
+	exists = scope:agot_burn_your_enemies_my_dragon
+	scope:agot_burn_your_enemies_my_dragon = {
+		is_alive = yes
+	}
+
+	scope:actor = {
+		is_alive = yes
+		is_at_war = no
+		is_imprisoned = no
+	}
+
+	exists = scope:recipient
+	scope:recipient = {
+		is_alive = yes
+		is_at_war = no
+		is_imprisoned = no
+		NOT = { is_allied_to = scope:actor }
+		NOT = { has_truce = scope:actor }
+		NOT = { is_vassal_or_below_of = scope:actor }
+		NOT = {
+			capital_province = {
+				has_holding_type = ruin_holding
+			}
+		}
+	}
+}

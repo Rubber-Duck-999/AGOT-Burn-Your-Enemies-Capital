@@ -121,9 +121,13 @@
         }
 
         scope:actor = {
-            trigger_event = {
-                id = agot_burn_your_enemies_dragon_raid.0001
-                days = { 10 20 }
+            start_travel_plan = {
+                destination = scope:agot_burn_your_enemies_target_capital_barony
+                on_arrival = {
+                    trigger_event = {
+                        id = agot_burn_your_enemies_dragon_raid.0005
+                    }
+                }
             }
         }
     }
