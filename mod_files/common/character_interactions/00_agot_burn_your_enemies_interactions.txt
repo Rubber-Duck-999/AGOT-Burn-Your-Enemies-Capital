@@ -39,6 +39,10 @@
                 text = agot_burn_your_enemies_actor_cooldown
                 NOT = { has_character_flag = agot_burn_your_enemies_actor_cooldown }
             }
+            custom_tooltip = {
+                text = agot_burn_your_enemies_actor_no_dragon
+                has_variable = current_dragon
+            }
         }
         scope:recipient = {
             custom_tooltip = {
@@ -105,7 +109,7 @@
                 save_scope_as = agot_burn_your_enemies_my_dragon
             }
         }
-        
+
         scope:recipient = {
             save_scope_as = agot_burn_your_enemies_target
             capital_county = {
@@ -116,9 +120,9 @@
             }
         }
 
-        scope:actor = {
-            trigger_event = {
-                id = agot_burn_your_enemies_dragon_raid.0001
+            scope:actor = {
+                trigger_event = {
+                    id = agot_burn_your_enemies_dragon_raid.0001
             }
         }
     }
