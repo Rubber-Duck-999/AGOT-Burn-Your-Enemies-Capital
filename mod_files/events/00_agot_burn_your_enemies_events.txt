@@ -258,7 +258,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         if = {
             limit = { has_trait = craven }
         }
-        else {
+        else = {
             add_trait = craven
         }
 
