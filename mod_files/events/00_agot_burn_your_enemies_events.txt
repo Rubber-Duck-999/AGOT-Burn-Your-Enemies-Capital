@@ -82,10 +82,6 @@ agot_burn_your_enemies_dragon_raid.0001 = {
             agot_burn_your_enemies_clear_raid_variables_effect = yes
         }
     }
-
-    after = {
-        agot_clear_dragon_animation_flags = yes
-    }
 }
 
 # Main Raid Event
