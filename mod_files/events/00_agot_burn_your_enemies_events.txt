@@ -207,21 +207,21 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                         target = scope:actor
                         modifier = agot_burn_your_enemies_dynasty_feud
                     }
+                    if = {
+                        limit = {
+                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
+                        }
+                        set_relation_rival = {
+                            target = scope:actor
+                            reason = rival_burned_my_capital
+                        }
+                    }
                 }
                 60 = {
                     death = {
                         death_reason = death_dragon_fire
                         killer = scope:agot_burn_your_enemies_my_dragon
                     }
-                }
-            }
-            if = {
-                limit = {
-                    can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
-                }
-                set_relation_rival = {
-                    target = scope:actor
-                    reason = rival_burned_my_capital
                 }
             }
             every_courtier_or_guest = {
