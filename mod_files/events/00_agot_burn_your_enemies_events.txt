@@ -324,6 +324,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                             trait = burned
                             value = 50
                         }
+                        add_trait = agot_burn_your_enemies_dragonfire_survivor
                     }
                     50 = {
                         death = {
@@ -353,21 +354,10 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     add_stress = 25
                 }
             }
+            add_trait = agot_burn_your_enemies_dragon_tyrant
             add_prestige = -10000
             add_piety = -1000
-        }
 
-        # Someone remembers this, one way or another
-        agot_burn_your_enemies_vengeance_effect = yes
-        if = {
-            limit = { scope:recipient = { is_alive = yes } }
-            scope:recipient = {
-                create_character_memory = {
-                    type = agot_burn_your_enemies_capital_burned_memory
-                }
-            }
-        }
-        scope:actor = {
             create_character_memory = {
                 type = agot_burn_your_enemies_burned_a_capital_memory
             }
@@ -385,6 +375,16 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                         target = scope:actor
                         modifier = agot_burn_your_enemies_atrocity_opinion
                     }
+                }
+            }
+        }
+
+        agot_burn_your_enemies_vengeance_effect = yes
+        if = {
+            limit = { scope:recipient = { is_alive = yes } }
+            scope:recipient = {
+                create_character_memory = {
+                    type = agot_burn_your_enemies_capital_burned_memory
                 }
             }
         }
@@ -469,12 +469,14 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         if = {
             limit = { scope:recipient = { is_alive = yes } }
             scope:recipient = {
+                add_trait = agot_burn_your_enemies_dragonfire_survivor
                 create_character_memory = {
                     type = agot_burn_your_enemies_capital_burned_memory
                 }
             }
         }
         scope:actor = {
+            add_trait = agot_burn_your_enemies_dragon_tyrant
             create_character_memory = {
                 type = agot_burn_your_enemies_burned_a_capital_memory
             }
@@ -494,9 +496,6 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     }
                 }
             }
-        }
-
-        scope:actor = {
             random_list = {
                 20 = {
                     death = {
@@ -509,7 +508,6 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     add_stress = 100
                     add_prestige = -10000
                     add_piety = -1000
-                    add_trait = murderer
                 }
             }
         }
@@ -684,9 +682,6 @@ agot_burn_your_enemies_dragon_raid.0005 = {
     }
 }
 
-# Silent background check - fires periodically (every 5 years) to see if a
-# capital that was burned to a ruin has since been rebuilt. Not shown to the
-# player. Set in motion by .0002's "ruin" option.
 agot_burn_your_enemies_dragon_raid.0006 = {
     type = character_event
     hidden = yes
@@ -718,7 +713,6 @@ agot_burn_your_enemies_dragon_raid.0006 = {
     }
 }
 
-# Aftermath payoff - fires once the ruined capital has actually been rebuilt.
 agot_burn_your_enemies_dragon_raid.0007 = {
     type = character_event
     window = agot_dragon_character_event
@@ -749,8 +743,7 @@ agot_burn_your_enemies_dragon_raid.0007 = {
     }
 }
 
-# Fired when the stationed scorpions land a killing blow on the dragon
-# itself (see 00_agot_burn_your_enemies_damage_effects.txt).
+
 agot_burn_your_enemies_dragon_raid.0008 = {
     type = character_event
     window = agot_dragon_character_event
@@ -786,10 +779,6 @@ agot_burn_your_enemies_dragon_raid.0008 = {
     }
 }
 
-# Fired on the RECIPIENT the moment the raid interaction is accepted, while
-# the dragon is still travelling to their capital. Represents word getting
-# out that a dragon may be coming, and gives them a real choice before it
-# arrives.
 agot_burn_your_enemies_dragon_raid.0009 = {
     type = character_event
     window = agot_dragon_character_event
