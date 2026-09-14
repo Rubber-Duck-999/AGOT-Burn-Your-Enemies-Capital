@@ -56,13 +56,6 @@
  agot_burn_your_enemies_dragon_raid.0005.desc:0 "[agot_burn_your_enemies_my_dragon.GetName] roars in pain as a scorpion bolt finds its mark, tearing through wing and scale. Blood rains down over [agot_burn_your_enemies_target_capital_county.GetName] as we fight to stay aloft."
  agot_burn_your_enemies_dragon_raid.0005.a:0 "It will heal, in time."
 
- agot_burn_your_enemies_target_cooldown:0 "This capital was raided too recently"
-
- agot_burn_your_enemies_capital_burned_memory:0 "My capital was put to the torch by a dragon."
- agot_burn_your_enemies_burned_a_capital_memory:0 "I burned an enemy's capital to ash with dragonfire."
-
- agot_burn_your_enemies_atrocity_opinion:0 "Burned an Enemy's Capital"
-
  agot_burn_your_enemies_dragon_raid.0006.a:0 "OK"
 
  agot_burn_your_enemies_dragon_raid.0007.t:0 "Word from the Ashes"
@@ -78,3 +71,21 @@
  agot_burn_your_enemies_dragon_raid.0009.desc:0 "Word reaches you that a dragon and its rider may be flying for your capital. There is still time to act - but not much."
  agot_burn_your_enemies_dragon_raid.0009.defend:0 "Rush every spare hand to the scorpions"
  agot_burn_your_enemies_dragon_raid.0009.flee:0 "Flee the capital while you still can"
+
+ agot_burn_your_enemies_target_cooldown:0 "This capital was raided too recently"
+
+ agot_burn_your_enemies_capital_burned_memory:0 "My capital was put to the torch by a dragon."
+ agot_burn_your_enemies_burned_a_capital_memory:0 "I burned an enemy's capital to ash with dragonfire."
+
+ agot_burn_your_enemies_atrocity_opinion:0 "Burned an Enemy's Capital"
+
+
+ #Traits
+ agot_burn_your_enemies_dragon_tyrant:0 "Dragon Tyrant"
+ agot_burn_your_enemies_dragon_tyrant_desc:0 "This character reduced an enemy's capital to ruins with dragonfire, and their name is spoken with dread across the realm."
+ trait_agot_burn_your_enemies_dragon_tyrant:0 "Dragon Tyrant"
+ trait_agot_burn_your_enemies_dragon_tyrant_desc:0 "This character reduced an enemy's capital to ruins with dragonfire, and their name is spoken with dread across the realm."
+ agot_burn_your_enemies_dragonfire_survivor:0 "Dragonfire Survivor"
+ agot_burn_your_enemies_dragonfire_survivor_desc:0 "This character lived through their own capital being put to the torch by a dragon, and has never quite recovered."
+ trait_agot_burn_your_enemies_dragonfire_survivor:0 "Dragonfire Survivor"
+ trait_agot_burn_your_enemies_dragonfire_survivor_desc:0 "This character lived through their own capital being put to the torch by a dragon, and has never quite recovered."

@@ -379,7 +379,6 @@ agot_burn_your_enemies_dragon_raid.0002 = {
             }
         }
 
-        agot_burn_your_enemies_vengeance_effect = yes
         if = {
             limit = { scope:recipient = { is_alive = yes } }
             scope:recipient = {
@@ -464,8 +463,6 @@ agot_burn_your_enemies_dragon_raid.0002 = {
             }
         }
 
-        # Someone remembers this, one way or another
-        agot_burn_your_enemies_vengeance_effect = yes
         if = {
             limit = { scope:recipient = { is_alive = yes } }
             scope:recipient = {
