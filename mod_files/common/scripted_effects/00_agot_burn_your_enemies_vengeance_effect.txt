@@ -19,8 +19,6 @@ agot_burn_your_enemies_vengeance_effect = {
 	if = {
 		limit = { exists = scope:agot_burn_your_enemies_vengeance_seeker }
 		scope:agot_burn_your_enemies_vengeance_seeker = {
-			add_character_flag = agot_burn_your_enemies_vengeance_seeker
-
 			if = {
 				limit = {
 					can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
@@ -35,20 +33,16 @@ agot_burn_your_enemies_vengeance_effect = {
 				target = scope:actor
 				modifier = agot_burn_your_enemies_dynasty_feud
 			}
-
-			# Only AI characters actively plot murder - the player is left
-			# to decide for themselves whether to seek revenge.
-			if = {
-				limit = {
-					is_ai = yes
-					is_adult = yes
-					is_alive = yes
-					NOT = { has_character_flag = agot_burn_your_enemies_vengeance_scheme_started }
-				}
-				add_character_flag = agot_burn_your_enemies_vengeance_scheme_started
-				create_scheme = {
-					type = murder
+		}
+	}
+	if = {
+		limit = { exists = scope:recipient }
+		scope:recipient = {
+			every_vassal = {
+				limit = { is_adult = yes }
+				add_opinion = {
 					target = scope:actor
+					modifier = agot_burn_your_enemies_liege_dynasty_feud
 				}
 			}
 		}
