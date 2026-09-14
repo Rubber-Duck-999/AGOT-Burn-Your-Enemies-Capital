@@ -1,4 +1,9 @@
-﻿death_burning_enemy_with_dragon = {
+death_burning_enemy_with_dragon = {
 	public_knowledge = yes
 	icon = "death_dragon.dds"
+}
+
+death_agot_burn_your_enemies_scorpion_kill = {
+	public_knowledge = yes
+	icon = "dragonslayer.dds"
 }

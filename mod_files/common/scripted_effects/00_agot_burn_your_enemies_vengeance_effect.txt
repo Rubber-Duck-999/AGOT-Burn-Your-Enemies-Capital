@@ -1,0 +1,56 @@
+agot_burn_your_enemies_vengeance_effect = {
+	if = {
+		limit = {
+			exists = scope:recipient
+			scope:recipient = { is_alive = yes }
+		}
+		scope:recipient = { save_scope_as = agot_burn_your_enemies_vengeance_seeker }
+	}
+	else_if = {
+		limit = {
+			exists = scope:recipient
+			scope:recipient = { exists = alive_heir }
+		}
+		scope:recipient = {
+			alive_heir = { save_scope_as = agot_burn_your_enemies_vengeance_seeker }
+		}
+	}
+
+	if = {
+		limit = { exists = scope:agot_burn_your_enemies_vengeance_seeker }
+		scope:agot_burn_your_enemies_vengeance_seeker = {
+			add_character_flag = agot_burn_your_enemies_vengeance_seeker
+
+			if = {
+				limit = {
+					can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
+				}
+				set_relation_rival = {
+					target = scope:actor
+					reason = rival_burned_my_capital
+				}
+			}
+
+			add_opinion = {
+				target = scope:actor
+				modifier = agot_burn_your_enemies_dynasty_feud
+			}
+
+			# Only AI characters actively plot murder - the player is left
+			# to decide for themselves whether to seek revenge.
+			if = {
+				limit = {
+					is_ai = yes
+					is_adult = yes
+					is_alive = yes
+					NOT = { has_character_flag = agot_burn_your_enemies_vengeance_scheme_started }
+				}
+				add_character_flag = agot_burn_your_enemies_vengeance_scheme_started
+				create_scheme = {
+					type = murder
+					target = scope:actor
+				}
+			}
+		}
+	}
+}

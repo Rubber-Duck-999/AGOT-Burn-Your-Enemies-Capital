@@ -1,4 +1,4 @@
-﻿agot_burn_your_enemies_dragon_raid_capital_interaction = {
+agot_burn_your_enemies_dragon_raid_capital_interaction = {
     category = interaction_category_hostile
     desc = agot_burn_your_enemies_dragon_raid_capital_interaction_desc
     icon = faction
@@ -146,6 +146,12 @@
             }
         }
 
+        scope:recipient = {
+            trigger_event = {
+                id = agot_burn_your_enemies_dragon_raid.0009
+            }
+        }
+
         hidden_effect = {
             scope:actor = {
                 start_travel_plan = {
@@ -177,7 +183,7 @@
             factor = 0
             scope:actor = { has_trait = craven }
         }
-        
+
         modifier = {
             factor = 0
             has_game_rule = agot_burn_your_enemies_ai_disabled
