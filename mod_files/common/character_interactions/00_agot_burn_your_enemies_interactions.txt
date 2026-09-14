@@ -107,7 +107,7 @@
         scope:actor = {
             add_character_flag = {
                 flag = agot_burn_your_enemies_actor_cooldown
-                years = 20
+                years = agot_burn_your_enemies_raid_cooldown_years
             }
             if = {
                 limit = { exists = var:current_dragon }
