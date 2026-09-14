@@ -148,7 +148,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_minor_scorpion_damage_effect = yes
 
         scope:recipient = {
-            add_trait = wounded_1
+            add_trait = wounded_2
             add_trait = burned
             add_trait_xp = {
                 trait = burned
@@ -195,15 +195,25 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
         scope:recipient = {
-            add_trait = wounded_2
-            add_trait = burned
-            add_trait_xp = {
-                trait = burned
-                value = 50
-            }
-            add_opinion = {
-                target = scope:actor
-                modifier = agot_burn_your_enemies_dynasty_feud
+            random_list = {
+                40 = {
+                    add_trait = wounded_2
+                    add_trait = burned
+                    add_trait_xp = {
+                        trait = burned
+                        value = 50
+                    }
+                    add_opinion = {
+                        target = scope:actor
+                        modifier = agot_burn_your_enemies_dynasty_feud
+                    }
+                }
+                60 = {
+                    death = {
+                        death_reason = death_dragon_fire
+                        killer = scope:agot_burn_your_enemies_my_dragon
+                    }
+                }
             }
             if = {
                 limit = {
@@ -228,7 +238,10 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                         }
                     }
                     50 = {
-                        add_trait = wounded_1
+                        death = {
+                            death_reason = death_dragon_fire
+                            killer = scope:agot_burn_your_enemies_my_dragon
+                        }
                     }
                 }
             }
@@ -359,10 +372,10 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 add_dread = -50
             }
             10 = {
-                agot_burn_your_enemies_minor_scorpion_damage_effect
+                agot_burn_your_enemies_minor_scorpion_damage_effect = yes
             }
             10 = {
-                agot_burn_your_enemies_major_scorpion_damage_effect
+                agot_burn_your_enemies_major_scorpion_damage_effect = yes
             }
         }
     }
@@ -384,7 +397,7 @@ agot_burn_your_enemies_dragon_raid.0003 = {
     }
 
     left_portrait = {
-        character = scope:agot_burn_your_enemies_my_dragon
+        character = scope:recipient
     }
 
     right_portrait = {
