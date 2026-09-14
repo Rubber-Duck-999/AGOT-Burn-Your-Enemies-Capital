@@ -82,10 +82,6 @@ agot_burn_your_enemies_dragon_raid.0001 = {
             agot_burn_your_enemies_clear_raid_variables_effect = yes
         }
     }
-
-    after = {
-        agot_clear_dragon_animation_flags = yes
-    }
 }
 
 # Main Raid Event
@@ -152,7 +148,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_minor_scorpion_damage_effect = yes
 
         scope:recipient = {
-            add_trait = wounded_1
+            add_trait = wounded_2
             add_trait = burned
             add_trait_xp = {
                 trait = burned
@@ -199,23 +195,33 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
         scope:recipient = {
-            add_trait = wounded_2
-            add_trait = burned
-            add_trait_xp = {
-                trait = burned
-                value = 50
-            }
-            add_opinion = {
-                target = scope:actor
-                modifier = agot_burn_your_enemies_dynasty_feud
-            }
-            if = {
-                limit = {
-                    can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
+            random_list = {
+                40 = {
+                    add_trait = wounded_2
+                    add_trait = burned
+                    add_trait_xp = {
+                        trait = burned
+                        value = 50
+                    }
+                    add_opinion = {
+                        target = scope:actor
+                        modifier = agot_burn_your_enemies_dynasty_feud
+                    }
+                    if = {
+                        limit = {
+                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
+                        }
+                        set_relation_rival = {
+                            target = scope:actor
+                            reason = rival_burned_my_capital
+                        }
+                    }
                 }
-                set_relation_rival = {
-                    target = scope:actor
-                    reason = rival_burned_my_capital
+                60 = {
+                    death = {
+                        death_reason = death_dragon_fire
+                        killer = scope:agot_burn_your_enemies_my_dragon
+                    }
                 }
             }
             every_courtier_or_guest = {
@@ -232,7 +238,10 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                         }
                     }
                     50 = {
-                        add_trait = wounded_1
+                        death = {
+                            death_reason = death_dragon_fire
+                            killer = scope:agot_burn_your_enemies_my_dragon
+                        }
                     }
                 }
             }
@@ -270,7 +279,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
 
         trigger = {
             scope:agot_burn_your_enemies_my_dragon = {
-                dragon_combat_effectiveness > 200
+                dragon_combat_effectiveness > 120
             }
         }
 
@@ -322,6 +331,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     add_stress = 100
                     add_prestige = -10000
                     add_piety = -1000
+                    add_trait = murderer
                 }
             }
         }
@@ -362,10 +372,10 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 add_dread = -50
             }
             10 = {
-                agot_burn_your_enemies_minor_scorpion_damage_effect
+                agot_burn_your_enemies_minor_scorpion_damage_effect = yes
             }
             10 = {
-                agot_burn_your_enemies_major_scorpion_damage_effect
+                agot_burn_your_enemies_major_scorpion_damage_effect = yes
             }
         }
     }
@@ -387,7 +397,7 @@ agot_burn_your_enemies_dragon_raid.0003 = {
     }
 
     left_portrait = {
-        character = scope:agot_burn_your_enemies_my_dragon
+        character = scope:recipient
     }
 
     right_portrait = {
@@ -404,11 +414,7 @@ agot_burn_your_enemies_dragon_raid.0003 = {
     }
 }
 
-# Fires instead of 0002 when the capital's stationed scorpions outmatch the
-# dragon's attack score (see agot_burn_your_enemies_dragon_raid.0001, option
-# "proceed"). The raid never reaches the point of burning anything - the
-# dragon is driven off. Loc keys keep the original "_event.0003" naming from
-# the mod's original (pre-existing, previously unused) localization.
+
 agot_burn_your_enemies_dragon_raid.0004 = {
     type = character_event
     window = agot_dragon_character_event
@@ -445,9 +451,6 @@ agot_burn_your_enemies_dragon_raid.0004 = {
     }
 }
 
-# Fired by the scripted scorpion damage effects
-# (00_agot_burn_your_enemies_damage_effects.txt) whenever a scorpion roll
-# actually lands a hit on the dragon.
 agot_burn_your_enemies_dragon_raid.0005 = {
     type = character_event
     window = agot_dragon_character_event
