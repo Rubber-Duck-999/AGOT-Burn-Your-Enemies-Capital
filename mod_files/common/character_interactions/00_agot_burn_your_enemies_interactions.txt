@@ -176,6 +176,10 @@
 
         modifier = {
             factor = 2
+            scope:actor = { has_trait = vengeful }
+        }
+        modifier = {
+            factor = 2
             scope:actor = { has_trait = wrathful }
         }
         modifier = {
@@ -187,7 +191,7 @@
             scope:actor = { has_trait = arrogant }
         }
         modifier = {
-            factor = 1.3
+            factor = 2
             scope:actor = { has_trait = brave }
         }
         modifier = {
