@@ -1,8 +1,8 @@
 ﻿l_english:
+ #Categories
  game_rule_category_agot_burn_your_enemies:0 "AGOT - Burn Your Enemies"
 
  rule_agot_burn_your_enemies_raid_cooldown_rule:0 "Dragon Raid Cooldown"
- setting_agot_burn_your_enemies_raid_cooldown_rule_desc:0 "How long a character must wait after raiding an enemy's capital with their dragon before they can do it again."
  setting_agot_burn_your_enemies_raid_cooldown_short:0 "Short (5 years)"
  setting_agot_burn_your_enemies_raid_cooldown_short_desc:0 "Only a 5 year cooldown between raids."
  setting_agot_burn_your_enemies_raid_cooldown_normal:0 "Normal (20 years)"

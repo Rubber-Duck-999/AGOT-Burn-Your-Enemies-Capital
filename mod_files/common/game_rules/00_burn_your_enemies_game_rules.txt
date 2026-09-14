@@ -1,14 +1,12 @@
 ﻿agot_burn_your_enemies_raid_cooldown_rule = {
-	group = agot_burn_your_enemies_raid_cooldown_rule
-	category = game_rule_category_agot_dragons
+	categories = {
+		agot_burn_your_enemies
+	}
+
 	default = agot_burn_your_enemies_raid_cooldown_normal
 
-	agot_burn_your_enemies_raid_cooldown_short = {
-	}
-	agot_burn_your_enemies_raid_cooldown_normal = {
-	}
-	agot_burn_your_enemies_raid_cooldown_long = {
-	}
-	agot_burn_your_enemies_raid_cooldown_none = {
-	}
+	agot_burn_your_enemies_raid_cooldown_short = {}
+	agot_burn_your_enemies_raid_cooldown_normal = {}
+	agot_burn_your_enemies_raid_cooldown_long = {}
+	agot_burn_your_enemies_raid_cooldown_none = {}
 }
