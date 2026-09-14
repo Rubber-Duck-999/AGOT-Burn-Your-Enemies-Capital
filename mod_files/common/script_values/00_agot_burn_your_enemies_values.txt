@@ -1,4 +1,4 @@
-# Uses AGOT's native dragon_combat_effectiveness stat
+﻿# Uses AGOT's native dragon_combat_effectiveness stat
 agot_burn_your_enemies_dragon_attack_score = {
     value = scope:actor.prowess
     if = {

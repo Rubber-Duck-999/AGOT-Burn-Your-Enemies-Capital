@@ -1,4 +1,4 @@
-namespace = agot_burn_your_enemies_dragon_raid
+﻿namespace = agot_burn_your_enemies_dragon_raid
 
 agot_burn_your_enemies_dragon_raid.0001 = {
     type = character_event

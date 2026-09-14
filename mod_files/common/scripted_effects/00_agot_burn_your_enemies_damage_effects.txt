@@ -1,4 +1,4 @@
-agot_burn_your_enemies_minor_scorpion_damage_effect = {
+﻿agot_burn_your_enemies_minor_scorpion_damage_effect = {
 	if = {
 		limit = {
 			scope:agot_burn_your_enemies_target_capital_barony = {

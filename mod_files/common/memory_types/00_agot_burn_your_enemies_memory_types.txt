@@ -1,4 +1,4 @@
-agot_burn_your_enemies_capital_burned_memory = {
+﻿agot_burn_your_enemies_capital_burned_memory = {
 	icon = memory_generic_negative
 
 	duration = 25 # years

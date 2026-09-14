@@ -1,4 +1,4 @@
-agot_burn_your_enemies_dragon_tyrant = {
+﻿agot_burn_your_enemies_dragon_tyrant = {
 	category = personality
 	icon = "gfx/interface/icons/traits/agot_burn_your_enemies_dragon_tyrant.dds"
 

@@ -1,4 +1,4 @@
-agot_burn_your_enemies_vengeance_effect = {
+﻿agot_burn_your_enemies_vengeance_effect = {
 	if = {
 		limit = {
 			exists = scope:recipient
