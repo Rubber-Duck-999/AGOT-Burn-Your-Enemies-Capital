@@ -177,6 +177,11 @@
             factor = 0
             scope:actor = { has_trait = craven }
         }
+        
+        modifier = {
+            factor = 0
+            has_game_rule = agot_burn_your_enemies_ai_disabled
+        }
 
         modifier = {
             factor = 2
