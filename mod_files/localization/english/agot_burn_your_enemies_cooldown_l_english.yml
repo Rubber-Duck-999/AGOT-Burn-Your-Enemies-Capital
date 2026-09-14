@@ -11,3 +11,9 @@
  setting_agot_burn_your_enemies_raid_cooldown_long_desc:0 "A 40 year cooldown between raids."
  setting_agot_burn_your_enemies_raid_cooldown_none:0 "None"
  setting_agot_burn_your_enemies_raid_cooldown_none_desc:0 "No cooldown - the raid can be repeated immediately."
+
+ rule_agot_burn_your_enemies_ai_rule:0 "AI Dragon Raids"
+ setting_agot_burn_your_enemies_ai_enabled:0 "Enabled"
+ setting_agot_burn_your_enemies_ai_enabled_desc:0 "AI rulers can use dragons to burn their enemies' capitals."
+ setting_agot_burn_your_enemies_ai_disabled:0 "Disabled"
+ setting_agot_burn_your_enemies_ai_disabled_desc:0 "AI rulers will never use dragons to burn their enemies' capitals. Player characters are unaffected."

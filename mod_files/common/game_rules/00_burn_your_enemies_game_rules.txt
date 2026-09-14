@@ -10,3 +10,14 @@
 	agot_burn_your_enemies_raid_cooldown_long = {}
 	agot_burn_your_enemies_raid_cooldown_none = {}
 }
+
+agot_burn_your_enemies_ai_rule = {
+	categories = {
+		agot_burn_your_enemies
+	}
+
+	default = agot_burn_your_enemies_ai_enabled
+
+	agot_burn_your_enemies_ai_enabled = {}
+	agot_burn_your_enemies_ai_disabled = {}
+}
