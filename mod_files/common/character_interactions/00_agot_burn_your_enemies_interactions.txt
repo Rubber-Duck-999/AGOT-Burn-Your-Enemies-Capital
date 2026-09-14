@@ -8,11 +8,6 @@
             AND = {
                 has_trait = dragonrider
             }
-            OR = {
-                has_trait = vengeful
-                has_trait = wrathful
-                has_trait = brave
-            }
         }
         scope:recipient = {
             is_landed = yes
@@ -25,7 +20,11 @@
         scope:actor = {
             custom_tooltip = {
                 text = agot_burn_your_enemies_actor_vengeful_trait
-                has_trait = vengeful
+                OR = {
+                    has_trait = vengeful
+                    has_trait = wrathful
+                    has_trait = brave
+                }
             }
             custom_tooltip = {
                 text = agot_burn_your_enemies_actor_at_war
@@ -105,9 +104,14 @@
 
     on_accept = {
         scope:actor = {
-            add_character_flag = {
-                flag = agot_burn_your_enemies_actor_cooldown
-                years = agot_burn_your_enemies_raid_cooldown_years
+            if = {
+                limit = {
+                    NOT = { has_game_rule = agot_burn_your_enemies_raid_cooldown_none }
+                }
+                add_character_flag = {
+                    flag = agot_burn_your_enemies_actor_cooldown
+                    years = agot_burn_your_enemies_raid_cooldown_years
+                }
             }
             if = {
                 limit = { exists = var:current_dragon }

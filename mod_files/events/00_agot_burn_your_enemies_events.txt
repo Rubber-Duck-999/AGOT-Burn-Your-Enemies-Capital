@@ -266,7 +266,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
 
         trigger = {
             scope:agot_burn_your_enemies_my_dragon = {
-                dragon_combat_effectiveness > 200
+                dragon_combat_effectiveness > 120
             }
         }
 
@@ -318,6 +318,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     add_stress = 100
                     add_prestige = -10000
                     add_piety = -1000
+                    add_trait = murderer
                 }
             }
         }
@@ -400,11 +401,7 @@ agot_burn_your_enemies_dragon_raid.0003 = {
     }
 }
 
-# Fires instead of 0002 when the capital's stationed scorpions outmatch the
-# dragon's attack score (see agot_burn_your_enemies_dragon_raid.0001, option
-# "proceed"). The raid never reaches the point of burning anything - the
-# dragon is driven off. Loc keys keep the original "_event.0003" naming from
-# the mod's original (pre-existing, previously unused) localization.
+
 agot_burn_your_enemies_dragon_raid.0004 = {
     type = character_event
     window = agot_dragon_character_event
@@ -441,9 +438,6 @@ agot_burn_your_enemies_dragon_raid.0004 = {
     }
 }
 
-# Fired by the scripted scorpion damage effects
-# (00_agot_burn_your_enemies_damage_effects.txt) whenever a scorpion roll
-# actually lands a hit on the dragon.
 agot_burn_your_enemies_dragon_raid.0005 = {
     type = character_event
     window = agot_dragon_character_event
