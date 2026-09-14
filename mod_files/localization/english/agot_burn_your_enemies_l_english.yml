@@ -78,14 +78,3 @@
  agot_burn_your_enemies_burned_a_capital_memory:0 "I burned an enemy's capital to ash with dragonfire."
 
  agot_burn_your_enemies_atrocity_opinion:0 "Burned an Enemy's Capital"
-
-
- #Traits
- agot_burn_your_enemies_dragon_tyrant:0 "Dragon Tyrant"
- agot_burn_your_enemies_dragon_tyrant_desc:0 "This character reduced an enemy's capital to ruins with dragonfire, and their name is spoken with dread across the realm."
- trait_agot_burn_your_enemies_dragon_tyrant:0 "Dragon Tyrant"
- trait_agot_burn_your_enemies_dragon_tyrant_desc:0 "This character reduced an enemy's capital to ruins with dragonfire, and their name is spoken with dread across the realm."
- agot_burn_your_enemies_dragonfire_survivor:0 "Dragonfire Survivor"
- agot_burn_your_enemies_dragonfire_survivor_desc:0 "This character lived through their own capital being put to the torch by a dragon, and has never quite recovered."
- trait_agot_burn_your_enemies_dragonfire_survivor:0 "Dragonfire Survivor"
- trait_agot_burn_your_enemies_dragonfire_survivor_desc:0 "This character lived through their own capital being put to the torch by a dragon, and has never quite recovered."

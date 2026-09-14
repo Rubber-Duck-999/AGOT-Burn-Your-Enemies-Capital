@@ -324,7 +324,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                             trait = burned
                             value = 50
                         }
-                        add_trait = agot_burn_your_enemies_dragonfire_survivor
+                        add_trait = holy_fire
                     }
                     50 = {
                         death = {
@@ -354,7 +354,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     add_stress = 25
                 }
             }
-            add_trait = agot_burn_your_enemies_dragon_tyrant
+            add_trait = conqueror
             add_prestige = -10000
             add_piety = -1000
 
@@ -466,14 +466,14 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         if = {
             limit = { scope:recipient = { is_alive = yes } }
             scope:recipient = {
-                add_trait = agot_burn_your_enemies_dragonfire_survivor
+                add_trait = holy_fire
                 create_character_memory = {
                     type = agot_burn_your_enemies_capital_burned_memory
                 }
             }
         }
         scope:actor = {
-            add_trait = agot_burn_your_enemies_dragon_tyrant
+            add_trait = conqueror
             create_character_memory = {
                 type = agot_burn_your_enemies_burned_a_capital_memory
             }
@@ -804,6 +804,10 @@ agot_burn_your_enemies_dragon_raid.0009 = {
                 factor = 1.3
                 has_trait = brave
             }
+            modifier = {
+                factor = 0
+                has_game_rule = agot_burn_your_enemies_recipient_ai_flee_only
+            }
         }
 
         capital_province = {
@@ -829,6 +833,10 @@ agot_burn_your_enemies_dragon_raid.0009 = {
             modifier = {
                 factor = 0.5
                 has_trait = brave
+            }
+            modifier = {
+                factor = 0
+                has_game_rule = agot_burn_your_enemies_recipient_ai_defend_only
             }
         }
 

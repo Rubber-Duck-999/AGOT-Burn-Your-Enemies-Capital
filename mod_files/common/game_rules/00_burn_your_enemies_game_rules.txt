@@ -21,3 +21,16 @@ agot_burn_your_enemies_ai_rule = {
 	agot_burn_your_enemies_ai_enabled = {}
 	agot_burn_your_enemies_ai_disabled = {}
 }
+
+agot_burn_your_enemies_recipient_ai_rule = {
+	categories = {
+		agot_burn_your_enemies
+	}
+
+	default = agot_burn_your_enemies_recipient_ai_either
+
+	agot_burn_your_enemies_recipient_ai_disabled = {}
+	agot_burn_your_enemies_recipient_ai_flee_only = {}
+	agot_burn_your_enemies_recipient_ai_defend_only = {}
+	agot_burn_your_enemies_recipient_ai_either = {}
+}
