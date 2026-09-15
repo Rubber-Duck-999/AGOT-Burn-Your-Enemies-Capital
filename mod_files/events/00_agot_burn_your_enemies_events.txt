@@ -313,6 +313,8 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                         rarity = masterpiece
                         wealth = 100
                         quality = 50
+                        visuals = amethyst_eyes
+                        modifier = { }
                         history = {
                             type = created
                         }
@@ -505,6 +507,8 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                         rarity = masterpiece
                         wealth = 100
                         quality = 50
+                        visuals = amethyst_eyes
+                        modifier = { }
                         history = {
                             type = created
                         }
