@@ -21,7 +21,6 @@
  agot_burn_your_enemies_not_allied:0 "You cannot burn the capital of an ally."
  agot_burn_your_enemies_no_truce:0 "You cannot burn the capital of someone with whom you have a truce."
  agot_burn_your_enemies_not_in_your_realm:0 "You cannot burn the capital of someone in your realm."
- agot_burn_your_enemies_not_your_rival:0 "This ruler is not your rival."
 
  agot_burn_your_enemies_dragon_burned_devastation:0 "Dragon Devastation"
  agot_burn_your_enemies_dragon_burned_devastation_desc:0 "This county was recently burned by dragonfire, destroying infrastructure and terrifying the populace."
@@ -68,7 +67,7 @@
 
  agot_burn_your_enemies_dragon_raid.0009.t:0 "Dragon Duel"
  agot_burn_your_enemies_dragon_raid.0009.desc:0 "Another dragon rises to meet us over [agot_burn_your_enemies_target_capital_county.GetName], its rider screaming a challenge. There will be no burning this capital until it's dealt with."
- agot_burn_your_enemies_dragon_raid.0009.a:0 "Dracarys."
+ agot_burn_your_enemies_dragon_raid.0009.a:0 "Lets battle in the skies!"
 
  agot_burn_your_enemies_target_cooldown:0 "This capital was raided too recently"
 
@@ -76,4 +75,13 @@
  agot_burn_your_enemies_burned_a_capital_memory:0 "I burned an enemy's capital to ash with dragonfire."
 
  agot_burn_your_enemies_atrocity_opinion:0 "Burned an Enemy's Capital"
+
+ artifact_agot_burn_your_enemies_skull_trophy_type:0 "Skull Trophy"
+ agot_burn_your_enemies_skull_trophy_name:0 "Skull of [recipient.GetNameNoTooltip]"
+ agot_burn_your_enemies_skull_trophy_desc:0 "The blackened skull of [recipient.GetNameNoTooltip], claimed from the ashes after [agot_burn_your_enemies_my_dragon.GetName] put it to the torch."
+
+ agot_burn_your_enemies_dragon_raid.0011.t:0 "A Grim Trophy"
+ agot_burn_your_enemies_dragon_raid.0011.desc:0 "The skull of [recipient.GetNameNoTooltip] sits before me, cleaned of ash and flesh by [agot_burn_your_enemies_my_dragon.GetName]'s fire. Some lords keep such things as a warning to their enemies. Others see only the making of new ones."
+ agot_burn_your_enemies_dragon_raid.0011.keep:0 "Keep it."
+ agot_burn_your_enemies_dragon_raid.0011.destroy:0 "Destroy it."
 

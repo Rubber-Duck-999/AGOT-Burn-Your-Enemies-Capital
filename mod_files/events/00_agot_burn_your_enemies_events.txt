@@ -7,6 +7,10 @@ agot_burn_your_enemies_dragon_raid.0001 = {
     desc = agot_burn_your_enemies_dragon_raid.0001.desc
     theme = dragon
 
+    override_background = {
+        reference = agot_flying_over_field
+    }
+
     immediate = {
         scope:actor = {
             var:agot_burn_your_enemies_target_var = {
@@ -100,6 +104,11 @@ agot_burn_your_enemies_dragon_raid.0002 = {
     window = agot_dragon_character_event
     title = agot_burn_your_enemies_dragon_raid.0002.t
     theme = dragon
+
+    override_background = {
+        reference = agot_alley_day_kingslanding_wildfire
+    }
+
     # AGOT Fire & Spark Shaders
     widgets = {
         widget = {
@@ -131,7 +140,8 @@ agot_burn_your_enemies_dragon_raid.0002 = {
     }
 
     left_portrait = {
-        character = scope:agot_burn_your_enemies_my_dragon
+        character = scope:recipient
+        animation = fear
     }
 
     right_portrait = {
@@ -291,35 +301,11 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
         scope:recipient = {
-            random_list = {
-                40 = {
-                    add_trait = wounded_2
-                    add_trait = burned
-                    add_trait_xp = {
-                        trait = burned
-                        value = 50
-                    }
-                    add_opinion = {
-                        target = scope:actor
-                        modifier = agot_burn_your_enemies_dynasty_feud
-                    }
-                    if = {
-                        limit = {
-                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
-                        }
-                        set_relation_rival = {
-                            target = scope:actor
-                            reason = rival_burned_my_capital
-                        }
-                    }
+                death = {
+                    death_reason = death_dragon_fire
+                    killer = scope:agot_burn_your_enemies_my_dragon
                 }
-                60 = {
-                    death = {
-                        death_reason = death_dragon_fire
-                        killer = scope:agot_burn_your_enemies_my_dragon
-                    }
-                }
-            }
+                agot_burn_your_enemies_create_skull_trophy_effect = { OWNER = scope:actor }
             every_courtier_or_guest = {
                 limit = {
                     is_alive = yes
@@ -493,6 +479,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     death_reason = death_dragon_fire
                     killer = scope:agot_burn_your_enemies_my_dragon
                 }
+                agot_burn_your_enemies_create_skull_trophy_effect = { OWNER = scope:actor }
             }
         }
 
@@ -663,6 +650,10 @@ agot_burn_your_enemies_dragon_raid.0004 = {
     desc = agot_burn_your_enemies_dragon_raid_event.0003.desc
     theme = dragon
 
+    override_background = {
+        reference = agot_northern_castle
+    }
+
     left_portrait = {
         character = scope:agot_burn_your_enemies_my_dragon
     }
@@ -694,6 +685,10 @@ agot_burn_your_enemies_dragon_raid.0005 = {
     title = agot_burn_your_enemies_dragon_raid.0005.t
     desc = agot_burn_your_enemies_dragon_raid.0005.desc
     theme = dragon
+
+    override_background = {
+        reference = agot_open_sky
+    }
 
     left_portrait = {
         character = scope:agot_burn_your_enemies_my_dragon
@@ -747,6 +742,10 @@ agot_burn_your_enemies_dragon_raid.0007 = {
     desc = agot_burn_your_enemies_dragon_raid.0007.desc
     theme = dragon
 
+    override_background = {
+        reference = agot_underground
+    }
+
     left_portrait = {
         character = root
     }
@@ -773,6 +772,10 @@ agot_burn_your_enemies_dragon_raid.0008 = {
     title = agot_burn_your_enemies_dragon_raid.0008.t
     desc = agot_burn_your_enemies_dragon_raid.0008.desc
     theme = dragon
+
+    override_background = {
+        reference = agot_dragonstone_cave
+    }
 
     left_portrait = {
         character = scope:agot_burn_your_enemies_my_dragon
@@ -804,6 +807,10 @@ agot_burn_your_enemies_dragon_raid.0009 = {
     title = agot_burn_your_enemies_dragon_raid.0009.t
     desc = agot_burn_your_enemies_dragon_raid.0009.desc
     theme = dragon
+
+    override_background = {
+        reference = agot_dragonpit
+    }
 
     immediate = {
         agot_burn_your_enemies_pick_next_dragon_duel_opponent_effect = yes
@@ -869,6 +876,45 @@ agot_burn_your_enemies_dragon_raid.0010 = {
             trigger_event = {
                 id = agot_burn_your_enemies_dragon_raid.0002
             }
+        }
+    }
+}
+
+agot_burn_your_enemies_dragon_raid.0011 = {
+    type = character_event
+    window = agot_dragon_character_event
+    title = agot_burn_your_enemies_dragon_raid.0011.t
+    desc = agot_burn_your_enemies_dragon_raid.0011.desc
+    theme = dragon
+
+    trigger = {
+        exists = scope:agot_burn_your_enemies_skull_trophy
+    }
+
+    override_background = {
+        reference = terrain
+    }
+
+    left_portrait = {
+        character = scope:agot_burn_your_enemies_my_dragon
+    }
+
+    center_portrait = {
+        character = scope:agot_burn_your_enemies_current_defender
+    }
+
+    right_portrait = {
+        character = root
+    }
+
+    option = {
+        name = agot_burn_your_enemies_dragon_raid.0011.keep
+    }
+
+    option = {
+        name = agot_burn_your_enemies_dragon_raid.0011.destroy
+        scope:agot_burn_your_enemies_skull_trophy = {
+            destroy_artifact = this
         }
     }
 }
