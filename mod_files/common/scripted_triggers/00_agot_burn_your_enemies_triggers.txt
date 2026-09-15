@@ -1,4 +1,13 @@
-﻿agot_burn_your_enemies_raid_still_valid_trigger = {
+﻿agot_burn_your_enemies_wild_dragon_can_flee_trigger = {
+	has_trait = dragon
+	dragon_size >= 30
+	NOR = {
+		has_variable = current_rider
+		any_relation = { type = agot_dragon }
+	}
+}
+
+agot_burn_your_enemies_raid_still_valid_trigger = {
 	exists = scope:agot_burn_your_enemies_my_dragon
 	scope:agot_burn_your_enemies_my_dragon = {
 		is_alive = yes

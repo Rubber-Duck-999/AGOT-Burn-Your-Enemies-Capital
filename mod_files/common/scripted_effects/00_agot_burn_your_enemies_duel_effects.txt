@@ -1,0 +1,53 @@
+agot_burn_your_enemies_pick_dragon_defenders_effect = {
+    root = {
+        set_variable = { name = agot_burn_your_enemies_temp_defender_count_var value = 0 }
+        clear_variable_list = agot_burn_your_enemies_defender_list
+    }
+
+    if = {
+        limit = {
+            has_trait = dragonrider
+            is_alive = yes
+            is_travelling = no
+            is_imprisoned = no
+            exists = var:current_dragon
+            var:current_dragon = {
+                is_alive = yes
+                dragon_combat_effectiveness > 20
+            }
+        }
+        root = {
+            change_variable = { name = agot_burn_your_enemies_temp_defender_count_var add = 1 }
+            add_to_variable_list = { name = agot_burn_your_enemies_defender_list target = prev }
+        }
+    }
+
+    every_courtier_or_guest = {
+        limit = {
+            is_travelling = no
+            is_imprisoned = no
+            is_alive = yes
+            has_trait = dragonrider
+            exists = var:current_dragon
+            var:current_dragon = {
+                is_alive = yes
+                dragon_combat_effectiveness > 20
+            }
+        }
+        root = {
+            change_variable = { name = agot_burn_your_enemies_temp_defender_count_var add = 1 }
+            add_to_variable_list = { name = agot_burn_your_enemies_defender_list target = prev }
+        }
+    }
+}
+
+agot_burn_your_enemies_pick_next_dragon_duel_opponent_effect = {
+    random_in_list = {
+        variable = agot_burn_your_enemies_defender_list
+        save_scope_as = agot_burn_your_enemies_current_defender
+    }
+    remove_from_variable_list = {
+        name = agot_burn_your_enemies_defender_list
+        target = scope:agot_burn_your_enemies_current_defender
+    }
+}

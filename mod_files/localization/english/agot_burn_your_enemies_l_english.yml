@@ -7,7 +7,7 @@
  rival_burned_my_liege_capital:0 "[TARGET_CHARACTER.GetShortUIName|U] burned my liege's capital with their dragon"
 
  agot_burn_your_enemies_dragon_raid_capital_interaction:0 "Burn Capital"
- agot_burn_your_enemies_dragon_raid_capital_interaction_desc:0 "Mount your dragon and fly directly to the capital of this ruler to lay waste to their holdings."
+ agot_burn_your_enemies_dragon_raid_capital_interaction_desc:0 "Mount your dragon and fly directly to the capital of this ruler to lay waste to their holdings. If dragonriders of their own guard that court, be ready to fight for the sky before you can touch it with fire."
  agot_burn_your_enemies_capital_already_ruined:0 "This capital is already a ruin."
  agot_burn_your_enemies_actor_vengeful_trait:0 "You must have the Vengeful, Wrathful or Brave trait."
  agot_burn_your_enemies_actor_at_war:0 "You are currently at war."
@@ -22,7 +22,6 @@
  agot_burn_your_enemies_no_truce:0 "You cannot burn the capital of someone with whom you have a truce."
  agot_burn_your_enemies_not_in_your_realm:0 "You cannot burn the capital of someone in your realm."
  agot_burn_your_enemies_not_your_rival:0 "This ruler is not your rival."
- agot_burn_your_enemies_no_court_dragonrider:0 "There are dragonriders in this court."
 
  agot_burn_your_enemies_dragon_burned_devastation:0 "Dragon Devastation"
  agot_burn_your_enemies_dragon_burned_devastation_desc:0 "This county was recently burned by dragonfire, destroying infrastructure and terrifying the populace."
@@ -72,9 +71,23 @@
  agot_burn_your_enemies_dragon_raid.0009.defend:0 "Rush every spare hand to the scorpions"
  agot_burn_your_enemies_dragon_raid.0009.flee:0 "Flee the capital while you still can"
 
+ agot_burn_your_enemies_dragon_raid.0010.t:0 "Dragon Duel"
+ agot_burn_your_enemies_dragon_raid.0010.desc:0 "Another dragon rises to meet us over [agot_burn_your_enemies_target_capital_county.GetName], its rider screaming a challenge. There will be no burning this capital until it's dealt with."
+ agot_burn_your_enemies_dragon_raid.0010.a:0 "Dracarys."
+
  agot_burn_your_enemies_target_cooldown:0 "This capital was raided too recently"
 
  agot_burn_your_enemies_capital_burned_memory:0 "My capital was put to the torch by a dragon."
  agot_burn_your_enemies_burned_a_capital_memory:0 "I burned an enemy's capital to ash with dragonfire."
 
  agot_burn_your_enemies_atrocity_opinion:0 "Burned an Enemy's Capital"
+
+ agot_burn_your_enemies_ruin_destroys_artifacts_rule:0 "Ruin Destroys Artifacts"
+ agot_burn_your_enemies_ruin_destroys_artifacts_rule_desc:0 "Whether reducing a capital to ruins also destroys the artifacts owned by its ruler."
+ agot_burn_your_enemies_ruin_destroys_artifacts_enabled:0 "Enabled"
+ agot_burn_your_enemies_ruin_destroys_artifacts_disabled:0 "Disabled"
+
+ agot_burn_your_enemies_duel_rule:0 "Dragon Duel"
+ agot_burn_your_enemies_duel_rule_desc:0 "Whether a court defended by its own dragonrider(s) fights back before its capital can be burned."
+ agot_burn_your_enemies_duel_enabled:0 "Enabled"
+ agot_burn_your_enemies_duel_disabled:0 "Disabled"
