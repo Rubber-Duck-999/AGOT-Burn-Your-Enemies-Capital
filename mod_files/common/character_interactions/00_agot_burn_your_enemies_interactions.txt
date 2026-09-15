@@ -85,18 +85,6 @@ agot_burn_your_enemies_dragon_raid_capital_interaction = {
                 has_relation_rival = scope:actor
                 text = agot_burn_your_enemies_not_your_rival
             }
-            custom_tooltip = {
-                text = agot_burn_your_enemies_no_court_dragonrider
-                NOT = {
-                    any_courtier_or_guest = {
-                        is_travelling = no
-                        OR = {
-                            has_trait = dragonrider
-                            has_trait = dragon
-                        }
-                    }
-                }
-            }
         }
     }
 
@@ -198,6 +186,31 @@ agot_burn_your_enemies_dragon_raid_capital_interaction = {
         modifier = {
             factor = 0
             has_game_rule = agot_burn_your_enemies_ai_disabled
+        }
+        modifier = {
+            factor = 0.5
+            scope:recipient = {
+                OR = {
+                    AND = {
+                        has_trait = dragonrider
+                        is_travelling = no
+                        is_imprisoned = no
+                        exists = var:current_dragon
+                        var:current_dragon = {
+                            is_alive = yes
+                        }
+                    }
+                    any_courtier_or_guest = {
+                        is_travelling = no
+                        is_imprisoned = no
+                        has_trait = dragonrider
+                        exists = var:current_dragon
+                        var:current_dragon = {
+                            is_alive = yes
+                        }
+                    }
+                }
+            }
         }
 
         modifier = {
