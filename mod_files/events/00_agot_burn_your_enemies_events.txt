@@ -7,10 +7,6 @@ agot_burn_your_enemies_dragon_raid.0001 = {
     desc = agot_burn_your_enemies_dragon_raid.0001.desc
     theme = dragon
 
-    override_background = {
-        reference = burning_building
-    }
-
     immediate = {
         scope:actor = {
             var:agot_burn_your_enemies_target_var = {
@@ -29,6 +25,10 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         scope:agot_burn_your_enemies_target = {
             save_scope_as = recipient
+        }
+
+        scope:recipient = {
+            agot_burn_your_enemies_pick_dragon_defenders_effect = yes
         }
 
         agot_set_dragon_animation_flag_effect = { FLAG = dragon_flying RIDING_DRAGON = yes }
@@ -52,6 +52,15 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         }
 
         if = {
+            limit = {
+                NOT = { has_game_rule = agot_burn_your_enemies_duel_disabled }
+                has_variable_list = agot_burn_your_enemies_defender_list
+            }
+            trigger_event = {
+                id = agot_burn_your_enemies_dragon_raid.0009
+            }
+        }
+        else_if = {
             limit = {
                 scope:agot_burn_your_enemies_target_capital_barony = {
                     has_stationed_scorpions = yes
@@ -79,6 +88,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         add_stress = 10
 
         scope:actor = {
+            remove_character_flag = agot_burn_your_enemies_actor_cooldown
             agot_burn_your_enemies_clear_raid_variables_effect = yes
         }
     }
@@ -90,10 +100,6 @@ agot_burn_your_enemies_dragon_raid.0002 = {
     window = agot_dragon_character_event
     title = agot_burn_your_enemies_dragon_raid.0002.t
     theme = dragon
-    override_background = {
-        reference = burning_building
-    }
-
     # AGOT Fire & Spark Shaders
     widgets = {
         widget = {
@@ -147,6 +153,18 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 save_scope_as = agot_burn_your_enemies_target_capital_county
                 capital_province = {
                     save_scope_as = agot_burn_your_enemies_target_capital_barony
+                }
+            }
+        }
+
+        if = {
+            limit = { NOT = { scope:recipient = { is_alive = yes } } }
+            scope:agot_burn_your_enemies_target_capital_county = {
+                if = {
+                    limit = { exists = holder }
+                    holder = {
+                        save_scope_as = recipient
+                    }
                 }
             }
         }
@@ -206,16 +224,11 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_minor_scorpion_damage_effect = yes
 
         scope:recipient = {
-            if = {
-                limit = {
-                    NOT = { has_character_flag = agot_burn_your_enemies_recipient_fled }
-                }
-                add_trait = wounded_2
-                add_trait = burned
-                add_trait_xp = {
-                    trait = burned
-                    value = 30
-                }
+            add_trait = wounded_2
+            add_trait = burned
+            add_trait_xp = {
+                trait = burned
+                value = 30
             }
             add_opinion = {
                 target = scope:actor
@@ -278,37 +291,32 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
         scope:recipient = {
-            if = {
-                limit = {
-                    NOT = { has_character_flag = agot_burn_your_enemies_recipient_fled }
-                }
-                random_list = {
-                    40 = {
-                        add_trait = wounded_2
-                        add_trait = burned
-                        add_trait_xp = {
-                            trait = burned
-                            value = 50
+            random_list = {
+                40 = {
+                    add_trait = wounded_2
+                    add_trait = burned
+                    add_trait_xp = {
+                        trait = burned
+                        value = 50
+                    }
+                    add_opinion = {
+                        target = scope:actor
+                        modifier = agot_burn_your_enemies_dynasty_feud
+                    }
+                    if = {
+                        limit = {
+                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
                         }
-                        add_opinion = {
+                        set_relation_rival = {
                             target = scope:actor
-                            modifier = agot_burn_your_enemies_dynasty_feud
-                        }
-                        if = {
-                            limit = {
-                                can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
-                            }
-                            set_relation_rival = {
-                                target = scope:actor
-                                reason = rival_burned_my_capital
-                            }
+                            reason = rival_burned_my_capital
                         }
                     }
-                    60 = {
-                        death = {
-                            death_reason = death_dragon_fire
-                            killer = scope:agot_burn_your_enemies_my_dragon
-                        }
+                }
+                60 = {
+                    death = {
+                        death_reason = death_dragon_fire
+                        killer = scope:agot_burn_your_enemies_my_dragon
                     }
                 }
             }
@@ -316,20 +324,25 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 limit = {
                     is_alive = yes
                 }
-                random_list = {
-                    50 = {
-                        add_trait = wounded_2
-                        add_trait = burned
-                        add_trait_xp = {
-                            trait = burned
-                            value = 50
+                if = {
+                    limit = { agot_burn_your_enemies_wild_dragon_can_flee_trigger = yes }
+                    agot_dragon_flees_province = yes
+                }
+                else = {
+                    random_list = {
+                        50 = {
+                            add_trait = wounded_2
+                            add_trait = burned
+                            add_trait_xp = {
+                                trait = burned
+                                value = 50
+                            }
                         }
-                        add_trait = holy_fire
-                    }
-                    50 = {
-                        death = {
-                            death_reason = death_dragon_fire
-                            killer = scope:agot_burn_your_enemies_my_dragon
+                        50 = {
+                            death = {
+                                death_reason = death_dragon_fire
+                                killer = scope:agot_burn_your_enemies_my_dragon
+                            }
                         }
                     }
                 }
@@ -362,14 +375,20 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 type = agot_burn_your_enemies_burned_a_capital_memory
             }
             every_vassal = {
-                limit = { is_adult = yes }
+                limit = {
+                    is_adult = yes
+                    NOT = { this = scope:actor }
+                }
                 add_opinion = {
                     target = scope:actor
                     modifier = agot_burn_your_enemies_atrocity_opinion
                 }
             }
             if = {
-                limit = { exists = liege }
+                limit = {
+                    exists = liege
+                    NOT = { liege = scope:actor }
+                }
                 liege = {
                     add_opinion = {
                         target = scope:actor
@@ -441,20 +460,34 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         play_music_cue = CK3AGOT_dragon_burn_holding
         agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
+        if = {
+            limit = { has_game_rule = agot_burn_your_enemies_ruin_destroys_artifacts_enabled }
+            scope:recipient = {
+                every_character_artifact = {
+                    destroy_artifact = this
+                }
+            }
+        }
+
         scope:recipient = {
             every_courtier_or_guest = {
                 limit = {
                     is_alive = yes
                 }
-                death = {
-                    death_reason = death_dragon_fire
-                    killer = scope:agot_burn_your_enemies_my_dragon
+                if = {
+                    limit = { agot_burn_your_enemies_wild_dragon_can_flee_trigger = yes }
+                    agot_dragon_flees_province = yes
+                }
+                else = {
+                    death = {
+                        death_reason = death_dragon_fire
+                        killer = scope:agot_burn_your_enemies_my_dragon
+                    }
                 }
             }
             if = {
                 limit = {
                     is_alive = yes
-                    NOT = { has_character_flag = agot_burn_your_enemies_recipient_fled }
                 }
                 death = {
                     death_reason = death_dragon_fire
@@ -466,7 +499,6 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         if = {
             limit = { scope:recipient = { is_alive = yes } }
             scope:recipient = {
-                add_trait = holy_fire
                 create_character_memory = {
                     type = agot_burn_your_enemies_capital_burned_memory
                 }
@@ -478,14 +510,20 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 type = agot_burn_your_enemies_burned_a_capital_memory
             }
             every_vassal = {
-                limit = { is_adult = yes }
+                limit = {
+                    is_adult = yes
+                    NOT = { this = scope:actor }
+                }
                 add_opinion = {
                     target = scope:actor
                     modifier = agot_burn_your_enemies_atrocity_opinion
                 }
             }
             if = {
-                limit = { exists = liege }
+                limit = {
+                    exists = liege
+                    NOT = { liege = scope:actor }
+                }
                 liege = {
                     add_opinion = {
                         target = scope:actor
@@ -625,10 +663,6 @@ agot_burn_your_enemies_dragon_raid.0004 = {
     desc = agot_burn_your_enemies_dragon_raid_event.0003.desc
     theme = dragon
 
-    override_background = {
-        reference = burning_building
-    }
-
     left_portrait = {
         character = scope:agot_burn_your_enemies_my_dragon
     }
@@ -660,10 +694,6 @@ agot_burn_your_enemies_dragon_raid.0005 = {
     title = agot_burn_your_enemies_dragon_raid.0005.t
     desc = agot_burn_your_enemies_dragon_raid.0005.desc
     theme = dragon
-
-    override_background = {
-        reference = burning_building
-    }
 
     left_portrait = {
         character = scope:agot_burn_your_enemies_my_dragon
@@ -717,10 +747,6 @@ agot_burn_your_enemies_dragon_raid.0007 = {
     desc = agot_burn_your_enemies_dragon_raid.0007.desc
     theme = dragon
 
-    override_background = {
-        reference = burning_building
-    }
-
     left_portrait = {
         character = root
     }
@@ -747,10 +773,6 @@ agot_burn_your_enemies_dragon_raid.0008 = {
     title = agot_burn_your_enemies_dragon_raid.0008.t
     desc = agot_burn_your_enemies_dragon_raid.0008.desc
     theme = dragon
-
-    override_background = {
-        reference = burning_building
-    }
 
     left_portrait = {
         character = scope:agot_burn_your_enemies_my_dragon
@@ -783,69 +805,70 @@ agot_burn_your_enemies_dragon_raid.0009 = {
     desc = agot_burn_your_enemies_dragon_raid.0009.desc
     theme = dragon
 
-    override_background = {
-        reference = burning_building
+    immediate = {
+        agot_burn_your_enemies_pick_next_dragon_duel_opponent_effect = yes
     }
 
     left_portrait = {
-        character = root
+        character = scope:agot_burn_your_enemies_my_dragon
+    }
+
+    right_portrait = {
+        character = scope:agot_burn_your_enemies_current_defender
+        animation = anger
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0009.defend
+        name = agot_burn_your_enemies_dragon_raid.0009.a
 
-        ai_chance = {
-            base = 50
-            modifier = {
-                factor = 1.5
-                has_trait = paranoid
-            }
-            modifier = {
-                factor = 1.3
-                has_trait = brave
-            }
-            modifier = {
-                factor = 0
-                has_game_rule = agot_burn_your_enemies_recipient_ai_flee_only
+        hidden_effect = {
+            configure_start_dragon_combat_effect = {
+                DSC_INITIATOR = root
+                DSC_ATTACKER = root
+                DSC_DEFENDER = scope:agot_burn_your_enemies_current_defender
             }
         }
 
-        capital_province = {
-            set_variable = {
-                name = agot_burn_your_enemies_emergency_defense_var
-                value = yes
-                days = 30
-            }
+        trigger_event = {
+            id = agot_burn_your_enemies_dragon_raid.0010
+            days = 1
         }
+    }
+}
 
-        add_stress = 10
+agot_burn_your_enemies_dragon_raid.0010 = {
+    type = character_event
+    hidden = yes
+
+    trigger = {
+        is_alive = yes
+        exists = scope:agot_burn_your_enemies_current_defender
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0009.flee
+        trigger = {
+            has_variable = engaged_in_dragon_combat
+        }
+        trigger_event = {
+            id = agot_burn_your_enemies_dragon_raid.0010
+            days = 1
+        }
+    }
 
-        ai_chance = {
-            base = 50
-            modifier = {
-                factor = 1.5
-                has_trait = craven
-            }
-            modifier = {
-                factor = 0.5
-                has_trait = brave
-            }
-            modifier = {
-                factor = 0
-                has_game_rule = agot_burn_your_enemies_recipient_ai_defend_only
+    option = {
+        trigger = {
+            NOT = { has_variable = engaged_in_dragon_combat }
+        }
+        if = {
+            limit = { has_variable_list = agot_burn_your_enemies_defender_list }
+            trigger_event = {
+                id = agot_burn_your_enemies_dragon_raid.0009
             }
         }
-
-        add_character_flag = {
-            flag = agot_burn_your_enemies_recipient_fled
-            years = 1
+        else = {
+            trigger_event = {
+                id = agot_burn_your_enemies_dragon_raid.0002
+            }
         }
-
-        add_prestige = -50
-        add_stress = 15
     }
 }

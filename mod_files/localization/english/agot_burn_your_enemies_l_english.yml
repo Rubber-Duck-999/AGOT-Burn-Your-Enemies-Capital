@@ -22,7 +22,6 @@
  agot_burn_your_enemies_no_truce:0 "You cannot burn the capital of someone with whom you have a truce."
  agot_burn_your_enemies_not_in_your_realm:0 "You cannot burn the capital of someone in your realm."
  agot_burn_your_enemies_not_your_rival:0 "This ruler is not your rival."
- agot_burn_your_enemies_no_court_dragonrider:0 "There are dragonriders in this court."
 
  agot_burn_your_enemies_dragon_burned_devastation:0 "Dragon Devastation"
  agot_burn_your_enemies_dragon_burned_devastation_desc:0 "This county was recently burned by dragonfire, destroying infrastructure and terrifying the populace."
@@ -67,10 +66,9 @@
  agot_burn_your_enemies_dragon_raid.0008.desc:0 "The scorpion bolts find their mark again and again. [agot_burn_your_enemies_my_dragon.GetName] shrieks once, then falls from the sky like a burning star."
  agot_burn_your_enemies_dragon_raid.0008.a:0 "No..."
 
- agot_burn_your_enemies_dragon_raid.0009.t:0 "Whispers of Fire"
- agot_burn_your_enemies_dragon_raid.0009.desc:0 "Word reaches you that a dragon and its rider may be flying for your capital. There is still time to act - but not much."
- agot_burn_your_enemies_dragon_raid.0009.defend:0 "Rush every spare hand to the scorpions"
- agot_burn_your_enemies_dragon_raid.0009.flee:0 "Flee the capital while you still can"
+ agot_burn_your_enemies_dragon_raid.0009.t:0 "Dragon Duel"
+ agot_burn_your_enemies_dragon_raid.0009.desc:0 "Another dragon rises to meet us over [agot_burn_your_enemies_target_capital_county.GetName], its rider screaming a challenge. There will be no burning this capital until it's dealt with."
+ agot_burn_your_enemies_dragon_raid.0009.a:0 "Dracarys."
 
  agot_burn_your_enemies_target_cooldown:0 "This capital was raided too recently"
 
@@ -78,3 +76,4 @@
  agot_burn_your_enemies_burned_a_capital_memory:0 "I burned an enemy's capital to ash with dragonfire."
 
  agot_burn_your_enemies_atrocity_opinion:0 "Burned an Enemy's Capital"
+
