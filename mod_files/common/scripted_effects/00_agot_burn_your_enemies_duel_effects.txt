@@ -81,7 +81,7 @@ agot_burn_your_enemies_pick_next_dragon_duel_opponent_effect = {
         variable = agot_burn_your_enemies_defender_list
         save_scope_as = agot_burn_your_enemies_current_defender
     }
-    remove_from_variable_list = {
+    remove_list_variable = {
         name = agot_burn_your_enemies_defender_list
         target = scope:agot_burn_your_enemies_current_defender
     }

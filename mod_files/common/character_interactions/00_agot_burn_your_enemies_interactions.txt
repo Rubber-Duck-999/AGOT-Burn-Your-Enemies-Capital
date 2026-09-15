@@ -142,6 +142,8 @@
                     players_use_planner = no
                     on_arrival_event = agot_burn_your_enemies_dragon_raid.0001
                     on_arrival_destinations = all_but_last
+                }
+                current_travel_plan = {
                     add_travel_option = dragon_flight_option
                 }
             }

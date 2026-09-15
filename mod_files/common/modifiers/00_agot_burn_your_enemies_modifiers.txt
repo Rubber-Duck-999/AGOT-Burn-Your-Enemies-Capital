@@ -1,11 +1,11 @@
 ﻿agot_burn_your_enemies_dragon_burned_devastation = {
     icon = county_modifier_control_negative
-    county_opinion = -100
+    county_opinion_add = -100
     development_growth_factor = -1
     tax_mult = -5
     levy_size = -5
     fort_level = -10
-    control = -100
+    monthly_county_control_growth_add = -10
 }
 
 agot_burn_your_enemies_holding_dragon_scathed = {
