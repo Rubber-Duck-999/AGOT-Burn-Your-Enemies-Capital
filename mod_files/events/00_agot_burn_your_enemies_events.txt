@@ -445,7 +445,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
             limit = { has_game_rule = agot_burn_your_enemies_ruin_destroys_artifacts_enabled }
             scope:recipient = {
                 every_character_artifact = {
-                    destroy_artifact = yes
+                    destroy_artifact = this
                 }
             }
         }
