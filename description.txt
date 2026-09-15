@@ -1,0 +1,57 @@
+[h1]AGOT - Burn your Enemies Capital[/h1]
+
+[i]Aegon the Conqueror destroyed Harrenhal with fire, if your dragon is large enough, so can you.[/i]
+
+[b]Your character must have the Vengeful, Brave or Wrathful trait to use this.[/b]
+
+[hr][/hr]
+
+[h1]Features[/h1]
+[list]
+[*] Fly to any valid target's capital and choose how you want to burn it:
+[list]
+[*] [b]Scorch[/b] — a light raid, minor chance of you being wounded
+[*] [b]Burn[/b] — a serious raid, higher chance of you or your target's court being wounded
+[*] [b]Dracarys[/b] — reduce the capital to ruins and put every courtier and lord to the torch (requires a sufficiently powerful dragon)
+[/list]
+[*] Capital defenses matter, stationed scorpions can wound your dragon, or even repel the attack outright before it begins
+[*] If the target's court has a dragonrider with a living dragon, they'll rise to defend the capital first, real dragon-vs-dragon duels, fought one at a time if there's more than one defender, with genuine stakes (wounds, death) before the burning can begin
+[*] Your dragon can be wounded in the fighting, with its own dedicated event when it happens
+[*] Untamed wild dragons caught in a burning capital will flee and go feral rather than simply dying
+[*] Killing the target ruler outright can leave you a grim trophy, a Skull, with a follow-up choice to keep or destroy it
+[*] The AI can now use this interaction too, weighing traits, dread, and the target's defenses when deciding
+[*] Consequences ripple outward: opinion penalties, rivalries, dread, stress, and prestige/piety losses depending on how far you go, plus a lasting opinion penalty on the recipient if they try to have you murdered for it
+[/list]
+
+[hr][/hr]
+
+[h1]Upcoming Features[/h1]
+[list]
+[*] Let stationed men-at-arms modify damage alongside scorpions
+[/list]
+
+[hr][/hr]
+
+[h1]Rules[/h1]
+[list]
+[*] Cannot target an ally
+[*] Cannot target someone you have a truce with
+[*] Cannot target someone within your own realm
+[*] Cannot be used while at war
+[*] Cannot be used while travelling
+[*] Cooldown after each use (length configurable via game rules, 20 years by default)
+[/list]
+
+[hr][/hr]
+
+[h1]Compatibility[/h1]
+[b]Requires:[/b] A Game of Thrones
+
+All files are brand new, so this should not conflict with other mods.
+
+[hr][/hr]
+
+[h1]Credits[/h1]
+Thanks to the GOT Team for their dragon additions, without which this mod would not be possible. No assets or graphics were used only events, interactions, and variables were referenced to understand how to build this.
+
+Thanks for taking the time to check out the mod!
