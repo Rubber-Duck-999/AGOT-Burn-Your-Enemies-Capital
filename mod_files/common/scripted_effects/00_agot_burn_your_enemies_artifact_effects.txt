@@ -7,13 +7,15 @@
 			name = agot_burn_your_enemies_skull_trophy_name
 			description = agot_burn_your_enemies_skull_trophy_desc
 			type = agot_burn_your_enemies_skull_trophy_type
-			rarity = masterpiece
+			rarity = illustrious
 			wealth = 100
-			quality = 50
+			quality = 500
 			visuals = daemon_blackfyre_skull
 			modifier = agot_burn_your_enemies_skull_trophy_modifier
 			history = {
 				type = created
+				recipient = character:owner
+				location = province: # Use province
 			}
 			decaying = yes
 			save_scope_as = agot_burn_your_enemies_skull_trophy

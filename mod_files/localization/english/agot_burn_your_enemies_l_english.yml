@@ -78,7 +78,7 @@
 
  artifact_agot_burn_your_enemies_skull_trophy_type:0 "Skull Trophy"
  agot_burn_your_enemies_skull_trophy_name:0 "Skull of [recipient.GetNameNoTooltip]"
- agot_burn_your_enemies_skull_trophy_desc:0 "The blackened skull of [recipient.GetNameNoTooltip], claimed from the ashes of [recipient.GetCapitalLocation.GetName] after [agot_burn_your_enemies_my_dragon.GetName] put it to the torch."
+ agot_burn_your_enemies_skull_trophy_desc:0 "The blackened skull of [recipient.GetNameNoTooltip], claimed from the ashes after [agot_burn_your_enemies_my_dragon.GetName] put it to the torch."
 
  agot_burn_your_enemies_dragon_raid.0011.t:0 "A Grim Trophy"
  agot_burn_your_enemies_dragon_raid.0011.desc:0 "The skull of [recipient.GetNameNoTooltip] sits before me, cleaned of ash and flesh by [agot_burn_your_enemies_my_dragon.GetName]'s fire. Some lords keep such things as a warning to their enemies. Others see only the making of new ones."

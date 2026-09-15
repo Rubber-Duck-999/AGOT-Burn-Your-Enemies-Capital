@@ -892,7 +892,7 @@ agot_burn_your_enemies_dragon_raid.0011 = {
     }
 
     override_background = {
-        reference = blank_placeholder
+        reference = terrain
     }
 
     left_portrait = {
