@@ -88,6 +88,7 @@ agot_burn_your_enemies_dragon_raid.0001 = {
         add_stress = 10
 
         scope:actor = {
+            remove_character_flag = agot_burn_your_enemies_actor_cooldown
             agot_burn_your_enemies_clear_raid_variables_effect = yes
         }
     }
@@ -152,6 +153,18 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 save_scope_as = agot_burn_your_enemies_target_capital_county
                 capital_province = {
                     save_scope_as = agot_burn_your_enemies_target_capital_barony
+                }
+            }
+        }
+
+        if = {
+            limit = { NOT = { scope:recipient = { is_alive = yes } } }
+            scope:agot_burn_your_enemies_target_capital_county = {
+                if = {
+                    limit = { exists = holder }
+                    holder = {
+                        save_scope_as = recipient
+                    }
                 }
             }
         }
@@ -362,14 +375,20 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 type = agot_burn_your_enemies_burned_a_capital_memory
             }
             every_vassal = {
-                limit = { is_adult = yes }
+                limit = {
+                    is_adult = yes
+                    NOT = { this = scope:actor }
+                }
                 add_opinion = {
                     target = scope:actor
                     modifier = agot_burn_your_enemies_atrocity_opinion
                 }
             }
             if = {
-                limit = { exists = liege }
+                limit = {
+                    exists = liege
+                    NOT = { liege = scope:actor }
+                }
                 liege = {
                     add_opinion = {
                         target = scope:actor
@@ -491,14 +510,20 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                 type = agot_burn_your_enemies_burned_a_capital_memory
             }
             every_vassal = {
-                limit = { is_adult = yes }
+                limit = {
+                    is_adult = yes
+                    NOT = { this = scope:actor }
+                }
                 add_opinion = {
                     target = scope:actor
                     modifier = agot_burn_your_enemies_atrocity_opinion
                 }
             }
             if = {
-                limit = { exists = liege }
+                limit = {
+                    exists = liege
+                    NOT = { liege = scope:actor }
+                }
                 liege = {
                     add_opinion = {
                         target = scope:actor

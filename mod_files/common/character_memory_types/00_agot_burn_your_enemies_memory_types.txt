@@ -1,11 +1,29 @@
 ﻿agot_burn_your_enemies_capital_burned_memory = {
-	icon = memory_generic_negative
+	categories = { negative major }
+	icon = "dragon.dds"
 
-	duration = 25 # years
+	description = {
+		first_valid = {
+			desc = agot_burn_your_enemies_capital_burned_memory
+		}
+	}
+
+	duration = {
+		years = 25
+	}
 }
 
 agot_burn_your_enemies_burned_a_capital_memory = {
-	icon = memory_generic_positive
+	categories = { positive major }
+	icon = "dragon.dds"
 
-	duration = 25 # years
+	description = {
+		first_valid = {
+			desc = agot_burn_your_enemies_burned_a_capital_memory
+		}
+	}
+
+	duration = {
+		years = 25
+	}
 }
