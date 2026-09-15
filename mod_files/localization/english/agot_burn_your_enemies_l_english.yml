@@ -41,6 +41,8 @@
  agot_burn_your_enemies_dragon_raid.0002.major:0 "Burn [agot_burn_your_enemies_target_capital_county.GetName]"
  agot_burn_your_enemies_dragon_raid.0002.ruin:0 "Dracarys! Reduce [agot_burn_your_enemies_target_capital_county.GetName] to ruins!"
  agot_burn_your_enemies_dragon_raid.0002.cancel:0 "Turn back... (let's hope we don't get shamed for this)"
+ agot_burn_your_enemies_dragon_raid.0002.desc.variant2:0 "[agot_burn_your_enemies_target_capital_county.GetName] has no warning beyond a shadow crossing the sun - then [agot_burn_your_enemies_my_dragon.GetName]'s roar drowns out every bell in the city.\n\nShall I unleash dragonfire and reduce it to ruin?"
+ agot_burn_your_enemies_dragon_raid.0002.desc.variant3:0 "I circle once above [agot_burn_your_enemies_target_capital_county.GetName], watching [agot_burn_your_enemies_target.GetName]'s defenders scramble for their scorpions below.\n\nShall I unleash dragonfire and reduce it to ruin?"
 
  agot_burn_your_enemies_dragon_raid.0003.t:0 "After the Dragonfire"
  agot_burn_your_enemies_dragon_raid.0003.desc:0 "Dragonfire rained down upon [agot_burn_your_enemies_target_capital_county.GetName]. Towers cracked, garrisons scattered, and the capital bears the scars of the attack."
@@ -53,3 +55,26 @@
  agot_burn_your_enemies_dragon_raid.0005.t:0 "A Wounded Dragon"
  agot_burn_your_enemies_dragon_raid.0005.desc:0 "[agot_burn_your_enemies_my_dragon.GetName] roars in pain as a scorpion bolt finds its mark, tearing through wing and scale. Blood rains down over [agot_burn_your_enemies_target_capital_county.GetName] as we fight to stay aloft."
  agot_burn_your_enemies_dragon_raid.0005.a:0 "It will heal, in time."
+
+ agot_burn_your_enemies_dragon_raid.0006.a:0 "OK"
+
+ agot_burn_your_enemies_dragon_raid.0007.t:0 "Word from the Ashes"
+ agot_burn_your_enemies_dragon_raid.0007.desc:0 "Years after the flames died down, word reaches you: the capital you burned to ruin has been rebuilt. Life goes on, even in the shadow of dragons."
+ agot_burn_your_enemies_dragon_raid.0007.pride:0 "Let them remember what I can do"
+ agot_burn_your_enemies_dragon_raid.0007.regret:0 "At least something good came of it"
+
+ agot_burn_your_enemies_dragon_raid.0008.t:0 "A Dragon Falls"
+ agot_burn_your_enemies_dragon_raid.0008.desc:0 "The scorpion bolts find their mark again and again. [agot_burn_your_enemies_my_dragon.GetName] shrieks once, then falls from the sky like a burning star."
+ agot_burn_your_enemies_dragon_raid.0008.a:0 "No..."
+
+ agot_burn_your_enemies_dragon_raid.0009.t:0 "Whispers of Fire"
+ agot_burn_your_enemies_dragon_raid.0009.desc:0 "Word reaches you that a dragon and its rider may be flying for your capital. There is still time to act - but not much."
+ agot_burn_your_enemies_dragon_raid.0009.defend:0 "Rush every spare hand to the scorpions"
+ agot_burn_your_enemies_dragon_raid.0009.flee:0 "Flee the capital while you still can"
+
+ agot_burn_your_enemies_target_cooldown:0 "This capital was raided too recently"
+
+ agot_burn_your_enemies_capital_burned_memory:0 "My capital was put to the torch by a dragon."
+ agot_burn_your_enemies_burned_a_capital_memory:0 "I burned an enemy's capital to ash with dragonfire."
+
+ agot_burn_your_enemies_atrocity_opinion:0 "Burned an Enemy's Capital"

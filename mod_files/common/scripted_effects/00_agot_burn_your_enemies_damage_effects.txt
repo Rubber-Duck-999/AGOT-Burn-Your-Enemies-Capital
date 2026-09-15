@@ -7,18 +7,39 @@
 			agot_burn_your_enemies_dragon_attack_score < agot_burn_your_enemies_dragon_defense_score
 		}
 		random_list = {
-			75 = {}
+			70 = {}
 			25 = {
 				scope:actor = {
 					add_trait = wounded_1
 				}
 				scope:agot_burn_your_enemies_my_dragon = {
 					wound_dragon = yes
+					add_character_flag = {
+						flag = agot_burn_your_enemies_dragon_shaken
+						years = 3
+					}
 				}
 				# NEW: show the dragon taking the hit
 				scope:actor = {
 					trigger_event = {
 						id = agot_burn_your_enemies_dragon_raid.0005
+					}
+				}
+			}
+			5 = {
+				# Rare but possible: heavily outmatched by the defenses, the
+				# scorpions land a killing blow on the dragon itself.
+				trigger = {
+					agot_burn_your_enemies_dragon_defense_margin > 30
+				}
+				scope:agot_burn_your_enemies_my_dragon = {
+					death = {
+						death_reason = death_agot_burn_your_enemies_scorpion_kill
+					}
+				}
+				scope:actor = {
+					trigger_event = {
+						id = agot_burn_your_enemies_dragon_raid.0008
 					}
 				}
 			}
@@ -35,13 +56,17 @@ agot_burn_your_enemies_major_scorpion_damage_effect = {
 			agot_burn_your_enemies_dragon_attack_score < agot_burn_your_enemies_dragon_defense_score
 		}
 		random_list = {
-			40 = {}
+			37 = {}
 			45 = {
 				scope:actor = {
 					add_trait = wounded_1
 				}
 				scope:agot_burn_your_enemies_my_dragon = {
 					wound_dragon = yes
+					add_character_flag = {
+						flag = agot_burn_your_enemies_dragon_shaken
+						years = 3
+					}
 				}
 				# NEW: show the dragon taking the hit
 				scope:actor = {
@@ -56,11 +81,32 @@ agot_burn_your_enemies_major_scorpion_damage_effect = {
 				}
 				scope:agot_burn_your_enemies_my_dragon = {
 					wound_dragon = yes
+					add_character_flag = {
+						flag = agot_burn_your_enemies_dragon_shaken
+						years = 3
+					}
 				}
 				# NEW: show the dragon taking the hit
 				scope:actor = {
 					trigger_event = {
 						id = agot_burn_your_enemies_dragon_raid.0005
+					}
+				}
+			}
+			3 = {
+				# Rare but possible: heavily outmatched by the defenses, the
+				# scorpions land a killing blow on the dragon itself.
+				trigger = {
+					agot_burn_your_enemies_dragon_defense_margin > 30
+				}
+				scope:agot_burn_your_enemies_my_dragon = {
+					death = {
+						death_reason = death_agot_burn_your_enemies_scorpion_kill
+					}
+				}
+				scope:actor = {
+					trigger_event = {
+						id = agot_burn_your_enemies_dragon_raid.0008
 					}
 				}
 			}

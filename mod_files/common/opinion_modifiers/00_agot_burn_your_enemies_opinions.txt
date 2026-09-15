@@ -9,3 +9,7 @@ agot_burn_your_enemies_liege_dynasty_feud = {
 agot_burn_your_enemies_tried_to_kill_opinion = {
 	opinion = -50
 }
+
+agot_burn_your_enemies_atrocity_opinion = {
+	opinion = -25
+}

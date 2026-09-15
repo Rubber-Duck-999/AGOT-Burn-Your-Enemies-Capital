@@ -4,6 +4,14 @@ agot_burn_your_enemies_dragon_attack_score = {
     if = {
         limit = { exists = scope:agot_burn_your_enemies_my_dragon }
         add = scope:agot_burn_your_enemies_my_dragon.dragon_combat_effectiveness
+        if = {
+            limit = {
+                scope:agot_burn_your_enemies_my_dragon = {
+                    has_character_flag = agot_burn_your_enemies_dragon_shaken
+                }
+            }
+            subtract = 20
+        }
     }
 }
 
@@ -13,5 +21,51 @@ agot_burn_your_enemies_dragon_defense_score = {
         limit = { exists = scope:agot_burn_your_enemies_target_capital_barony }
         value = scope:agot_burn_your_enemies_target_capital_barony.fort_level
         multiply = 5
+        if = {
+            limit = {
+                scope:agot_burn_your_enemies_target_capital_barony = {
+                    has_variable = agot_burn_your_enemies_emergency_defense_var
+                }
+            }
+            add = 15
+        }
+    }
+}
+
+agot_burn_your_enemies_dragon_defense_margin = {
+    value = agot_burn_your_enemies_dragon_defense_score
+    subtract = agot_burn_your_enemies_dragon_attack_score
+}
+
+agot_burn_your_enemies_ai_dragon_attack_score = {
+    value = scope:actor.prowess
+    if = {
+        limit = { scope:actor = { exists = var:current_dragon } }
+        add = scope:actor.var:current_dragon.dragon_combat_effectiveness
+        if = {
+            limit = {
+                scope:actor.var:current_dragon = {
+                    has_character_flag = agot_burn_your_enemies_dragon_shaken
+                }
+            }
+            subtract = 20
+        }
+    }
+}
+
+agot_burn_your_enemies_ai_dragon_defense_score = {
+    value = 0
+    if = {
+        limit = { exists = scope:recipient.capital_province }
+        value = scope:recipient.capital_province.fort_level
+        multiply = 5
+        if = {
+            limit = {
+                scope:recipient.capital_province = {
+                    has_variable = agot_burn_your_enemies_emergency_defense_var
+                }
+            }
+            add = 15
+        }
     }
 }

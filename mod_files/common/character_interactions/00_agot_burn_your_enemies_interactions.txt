@@ -1,4 +1,4 @@
-﻿agot_burn_your_enemies_dragon_raid_capital_interaction = {
+agot_burn_your_enemies_dragon_raid_capital_interaction = {
     category = interaction_category_hostile
     desc = agot_burn_your_enemies_dragon_raid_capital_interaction_desc
     icon = faction
@@ -9,6 +9,7 @@
                 has_trait = dragonrider
             }
         }
+        NOT = { scope:actor = scope:recipient }
         scope:recipient = {
             is_landed = yes
             exists = primary_title
@@ -146,6 +147,22 @@
             }
         }
 
+        if = {
+            limit = {
+                scope:recipient = {
+                    OR = {
+                        is_ai = no
+                        NOT = { has_game_rule = agot_burn_your_enemies_recipient_ai_disabled }
+                    }
+                }
+            }
+            scope:recipient = {
+                trigger_event = {
+                    id = agot_burn_your_enemies_dragon_raid.0009
+                }
+            }
+        }
+
         hidden_effect = {
             scope:actor = {
                 start_travel_plan = {
@@ -165,6 +182,59 @@
 
 
     ai_will_do = {
-        base = 0
+        base = 5
+
+        modifier = {
+            factor = 0
+            agot_burn_your_enemies_ai_dragon_attack_score < agot_burn_your_enemies_ai_dragon_defense_score
+        }
+
+        # Cravens won't risk this at all, regardless of how vengeful they are
+        modifier = {
+            factor = 0
+            scope:actor = { has_trait = craven }
+        }
+
+        modifier = {
+            factor = 0
+            has_game_rule = agot_burn_your_enemies_ai_disabled
+        }
+
+        modifier = {
+            factor = 2
+            scope:actor = { has_trait = vengeful }
+        }
+        modifier = {
+            factor = 2
+            scope:actor = { has_trait = wrathful }
+        }
+        modifier = {
+            factor = 1.5
+            scope:actor = { has_trait = callous }
+        }
+        modifier = {
+            factor = 1.5
+            scope:actor = { has_trait = arrogant }
+        }
+        modifier = {
+            factor = 2
+            scope:actor = { has_trait = brave }
+        }
+        modifier = {
+            factor = 1.3
+            scope:actor = { dread > 50 }
+        }
+        modifier = {
+            factor = 0.4
+            scope:actor = { has_trait = compassionate }
+        }
+        modifier = {
+            factor = 0.4
+            scope:actor = { has_trait = forgiving }
+        }
+        modifier = {
+            factor = 0.6
+            scope:actor = { has_trait = content }
+        }
     }
 }
