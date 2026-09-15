@@ -27,3 +27,19 @@
  setting_agot_burn_your_enemies_recipient_ai_defend_only_desc:0 "AI rulers whose capital is under threat will always rush their defenses and never flee. Player characters are unaffected."
  setting_agot_burn_your_enemies_recipient_ai_either:0 "Defend or Flee"
  setting_agot_burn_your_enemies_recipient_ai_either_desc:0 "AI rulers whose capital is under threat will choose to defend or flee based on their traits, as normal."
+
+ agot_burn_your_enemies_ruin_destroys_artifacts_rule:0 "Ruin Destroys Artifacts"
+ agot_burn_your_enemies_ruin_destroys_artifacts_rule_desc:0 "Whether reducing a capital to ruins also destroys the artifacts owned by its ruler."
+ agot_burn_your_enemies_ruin_destroys_artifacts_enabled:0 "Enabled"
+ agot_burn_your_enemies_ruin_destroys_artifacts_disabled:0 "Disabled"
+
+ agot_burn_your_enemies_duel_rule:0 "Dragon Duel"
+ agot_burn_your_enemies_duel_rule_desc:0 "Whether a court defended by its own dragonrider(s) fights back before its capital can be burned."
+ agot_burn_your_enemies_duel_enabled:0 "Enabled"
+ agot_burn_your_enemies_duel_disabled:0 "Disabled"
+
+ agot_burn_your_enemies_multi_dragon_rule:0 "Multiple Dragon Defenders"
+ agot_burn_your_enemies_multi_dragon_rule_desc:0 "How a court with more than one qualifying dragon defender is handled."
+ agot_burn_your_enemies_multi_dragon_fight_all:0 "Fight All"
+ agot_burn_your_enemies_multi_dragon_fight_biggest:0 "Fight Biggest Only"
+ agot_burn_your_enemies_multi_dragon_no_fight:0 "No Fight"

@@ -56,3 +56,15 @@ agot_burn_your_enemies_duel_rule = {
 	agot_burn_your_enemies_duel_enabled = {}
 	agot_burn_your_enemies_duel_disabled = {}
 }
+
+agot_burn_your_enemies_multi_dragon_rule = {
+	categories = {
+		agot_burn_your_enemies
+	}
+
+	default = agot_burn_your_enemies_multi_dragon_fight_all
+
+	agot_burn_your_enemies_multi_dragon_fight_all = {}
+	agot_burn_your_enemies_multi_dragon_fight_biggest = {}
+	agot_burn_your_enemies_multi_dragon_no_fight = {}
+}

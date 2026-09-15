@@ -84,12 +84,3 @@
 
  agot_burn_your_enemies_atrocity_opinion:0 "Burned an Enemy's Capital"
 
- agot_burn_your_enemies_ruin_destroys_artifacts_rule:0 "Ruin Destroys Artifacts"
- agot_burn_your_enemies_ruin_destroys_artifacts_rule_desc:0 "Whether reducing a capital to ruins also destroys the artifacts owned by its ruler."
- agot_burn_your_enemies_ruin_destroys_artifacts_enabled:0 "Enabled"
- agot_burn_your_enemies_ruin_destroys_artifacts_disabled:0 "Disabled"
-
- agot_burn_your_enemies_duel_rule:0 "Dragon Duel"
- agot_burn_your_enemies_duel_rule_desc:0 "Whether a court defended by its own dragonrider(s) fights back before its capital can be burned."
- agot_burn_your_enemies_duel_enabled:0 "Enabled"
- agot_burn_your_enemies_duel_disabled:0 "Disabled"

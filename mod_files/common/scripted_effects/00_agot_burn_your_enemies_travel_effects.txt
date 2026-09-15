@@ -4,5 +4,6 @@
     remove_variable = agot_burn_your_enemies_target_capital_county_var
     remove_variable = agot_burn_your_enemies_target_capital_barony_var
     remove_variable = agot_burn_your_enemies_temp_defender_count_var
+    remove_variable = agot_burn_your_enemies_temp_lead_score_var
     clear_variable_list = agot_burn_your_enemies_defender_list
 }
