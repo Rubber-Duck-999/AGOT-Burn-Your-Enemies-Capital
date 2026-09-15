@@ -13,3 +13,7 @@ agot_burn_your_enemies_holding_dragon_scathed = {
     fort_level = -3
     garrison_size = -0.50
 }
+
+agot_burn_your_enemies_skull_trophy_modifier = {
+    dread = 2
+}

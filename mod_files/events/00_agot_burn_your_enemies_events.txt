@@ -305,27 +305,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     death_reason = death_dragon_fire
                     killer = scope:agot_burn_your_enemies_my_dragon
                 }
-                scope:actor = {
-                    create_artifact = {
-                        name = agot_burn_your_enemies_skull_trophy_name
-                        description = agot_burn_your_enemies_skull_trophy_desc
-                        type = agot_burn_your_enemies_skull_trophy_type
-                        rarity = masterpiece
-                        wealth = 100
-                        quality = 50
-                        visuals = amethyst_eyes
-                        modifier = { }
-                        history = {
-                            type = created
-                        }
-                        decaying = yes
-                        save_scope_as = agot_burn_your_enemies_skull_trophy
-                    }
-                    trigger_event = {
-                        id = agot_burn_your_enemies_dragon_raid.0011
-                        days = 2
-                    }
-                }
+                agot_burn_your_enemies_create_skull_trophy_effect = { OWNER = scope:actor }
             every_courtier_or_guest = {
                 limit = {
                     is_alive = yes
@@ -499,26 +479,7 @@ agot_burn_your_enemies_dragon_raid.0002 = {
                     death_reason = death_dragon_fire
                     killer = scope:agot_burn_your_enemies_my_dragon
                 }
-                scope:actor = {
-                    create_artifact = {
-                        name = agot_burn_your_enemies_skull_trophy_name
-                        description = agot_burn_your_enemies_skull_trophy_desc
-                        type = agot_burn_your_enemies_skull_trophy_type
-                        rarity = masterpiece
-                        wealth = 100
-                        quality = 50
-                        visuals = amethyst_eyes
-                        modifier = { }
-                        history = {
-                            type = created
-                        }
-                        save_scope_as = agot_burn_your_enemies_skull_trophy
-                    }
-                    trigger_event = {
-                        id = agot_burn_your_enemies_dragon_raid.0011
-                        days = 2
-                    }
-                }
+                agot_burn_your_enemies_create_skull_trophy_effect = { OWNER = scope:actor }
             }
         }
 
