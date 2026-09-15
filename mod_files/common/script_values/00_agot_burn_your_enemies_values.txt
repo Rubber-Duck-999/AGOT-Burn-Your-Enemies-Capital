@@ -69,3 +69,7 @@ agot_burn_your_enemies_ai_dragon_defense_score = {
         }
     }
 }
+
+agot_burn_your_enemies_wildfire_defense_cost_value = {
+    value = 2000
+}

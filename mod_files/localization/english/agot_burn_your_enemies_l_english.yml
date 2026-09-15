@@ -68,7 +68,9 @@
 
  agot_burn_your_enemies_dragon_raid.0009.t:0 "Whispers of Fire"
  agot_burn_your_enemies_dragon_raid.0009.desc:0 "Word reaches you that a dragon and its rider may be flying for your capital. There is still time to act - but not much."
- agot_burn_your_enemies_dragon_raid.0009.defend:0 "Rush every spare hand to the scorpions"
+ agot_burn_your_enemies_dragon_raid.0009.defend:0 "Ready the capital's defenses"
+ agot_burn_your_enemies_dragon_raid.0009.defend_wildfire_tt:0 "Pay [agot_burn_your_enemies_wildfire_defense_cost_value|V] gold to douse the approach with wildfire"
+ agot_burn_your_enemies_dragon_raid.0009.defend_spell_tt:0 "Ward the capital with a witch's spell"
  agot_burn_your_enemies_dragon_raid.0009.flee:0 "Flee the capital while you still can"
 
  agot_burn_your_enemies_dragon_raid.0010.t:0 "Dragon Duel"

@@ -800,6 +800,13 @@ agot_burn_your_enemies_dragon_raid.0009 = {
     option = {
         name = agot_burn_your_enemies_dragon_raid.0009.defend
 
+        trigger = {
+            OR = {
+                gold >= agot_burn_your_enemies_wildfire_defense_cost_value
+                has_trait = witch
+            }
+        }
+
         ai_chance = {
             base = 50
             modifier = {
@@ -814,6 +821,15 @@ agot_burn_your_enemies_dragon_raid.0009 = {
                 factor = 0
                 has_game_rule = agot_burn_your_enemies_recipient_ai_flee_only
             }
+        }
+
+        if = {
+            limit = { gold >= agot_burn_your_enemies_wildfire_defense_cost_value }
+            add_gold = -agot_burn_your_enemies_wildfire_defense_cost_value
+            custom_tooltip = agot_burn_your_enemies_dragon_raid.0009.defend_wildfire_tt
+        }
+        else = {
+            custom_tooltip = agot_burn_your_enemies_dragon_raid.0009.defend_spell_tt
         }
 
         capital_province = {
