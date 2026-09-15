@@ -1,4 +1,4 @@
-agot_burn_your_enemies_dragon_raid_capital_interaction = {
+﻿agot_burn_your_enemies_dragon_raid_capital_interaction = {
     category = interaction_category_hostile
     desc = agot_burn_your_enemies_dragon_raid_capital_interaction_desc
     icon = faction
@@ -132,22 +132,6 @@ agot_burn_your_enemies_dragon_raid_capital_interaction = {
             set_variable = {
                 name = agot_burn_your_enemies_target_capital_barony_var
                 value = scope:agot_burn_your_enemies_target_capital_barony
-            }
-        }
-
-        if = {
-            limit = {
-                scope:recipient = {
-                    OR = {
-                        is_ai = no
-                        NOT = { has_game_rule = agot_burn_your_enemies_recipient_ai_disabled }
-                    }
-                }
-            }
-            scope:recipient = {
-                trigger_event = {
-                    id = agot_burn_your_enemies_dragon_raid.0009
-                }
             }
         }
 

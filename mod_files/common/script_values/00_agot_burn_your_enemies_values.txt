@@ -21,14 +21,6 @@ agot_burn_your_enemies_dragon_defense_score = {
         limit = { exists = scope:agot_burn_your_enemies_target_capital_barony }
         value = scope:agot_burn_your_enemies_target_capital_barony.fort_level
         multiply = 5
-        if = {
-            limit = {
-                scope:agot_burn_your_enemies_target_capital_barony = {
-                    has_variable = agot_burn_your_enemies_emergency_defense_var
-                }
-            }
-            add = 15
-        }
     }
 }
 
@@ -59,17 +51,5 @@ agot_burn_your_enemies_ai_dragon_defense_score = {
         limit = { exists = scope:recipient.capital_province }
         value = scope:recipient.capital_province.fort_level
         multiply = 5
-        if = {
-            limit = {
-                scope:recipient.capital_province = {
-                    has_variable = agot_burn_your_enemies_emergency_defense_var
-                }
-            }
-            add = 15
-        }
     }
-}
-
-agot_burn_your_enemies_wildfire_defense_cost_value = {
-    value = 2000
 }

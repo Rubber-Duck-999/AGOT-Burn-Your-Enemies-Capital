@@ -7,7 +7,7 @@
  rival_burned_my_liege_capital:0 "[TARGET_CHARACTER.GetShortUIName|U] burned my liege's capital with their dragon"
 
  agot_burn_your_enemies_dragon_raid_capital_interaction:0 "Burn Capital"
- agot_burn_your_enemies_dragon_raid_capital_interaction_desc:0 "Mount your dragon and fly directly to the capital of this ruler to lay waste to their holdings. If dragonriders of their own guard that court, be ready to fight for the sky before you can touch it with fire."
+ agot_burn_your_enemies_dragon_raid_capital_interaction_desc:0 "Mount your dragon and fly directly to the capital of this ruler to lay waste to their holdings."
  agot_burn_your_enemies_capital_already_ruined:0 "This capital is already a ruin."
  agot_burn_your_enemies_actor_vengeful_trait:0 "You must have the Vengeful, Wrathful or Brave trait."
  agot_burn_your_enemies_actor_at_war:0 "You are currently at war."
@@ -66,16 +66,9 @@
  agot_burn_your_enemies_dragon_raid.0008.desc:0 "The scorpion bolts find their mark again and again. [agot_burn_your_enemies_my_dragon.GetName] shrieks once, then falls from the sky like a burning star."
  agot_burn_your_enemies_dragon_raid.0008.a:0 "No..."
 
- agot_burn_your_enemies_dragon_raid.0009.t:0 "Whispers of Fire"
- agot_burn_your_enemies_dragon_raid.0009.desc:0 "Word reaches you that a dragon and its rider may be flying for your capital. There is still time to act - but not much."
- agot_burn_your_enemies_dragon_raid.0009.defend:0 "Ready the capital's defenses"
- agot_burn_your_enemies_dragon_raid.0009.defend_wildfire_tt:0 "Pay [agot_burn_your_enemies_wildfire_defense_cost_value|V] gold to douse the approach with wildfire"
- agot_burn_your_enemies_dragon_raid.0009.defend_spell_tt:0 "Ward the capital with a witch's spell"
- agot_burn_your_enemies_dragon_raid.0009.flee:0 "Flee the capital while you still can"
-
- agot_burn_your_enemies_dragon_raid.0010.t:0 "Dragon Duel"
- agot_burn_your_enemies_dragon_raid.0010.desc:0 "Another dragon rises to meet us over [agot_burn_your_enemies_target_capital_county.GetName], its rider screaming a challenge. There will be no burning this capital until it's dealt with."
- agot_burn_your_enemies_dragon_raid.0010.a:0 "Dracarys."
+ agot_burn_your_enemies_dragon_raid.0009.t:0 "Dragon Duel"
+ agot_burn_your_enemies_dragon_raid.0009.desc:0 "Another dragon rises to meet us over [agot_burn_your_enemies_target_capital_county.GetName], its rider screaming a challenge. There will be no burning this capital until it's dealt with."
+ agot_burn_your_enemies_dragon_raid.0009.a:0 "Dracarys."
 
  agot_burn_your_enemies_target_cooldown:0 "This capital was raided too recently"
 

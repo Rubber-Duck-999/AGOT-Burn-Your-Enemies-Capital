@@ -1,4 +1,4 @@
-agot_burn_your_enemies_pick_dragon_defenders_effect = {
+﻿agot_burn_your_enemies_pick_dragon_defenders_effect = {
     root = {
         set_variable = { name = agot_burn_your_enemies_temp_defender_count_var value = 0 }
         set_variable = { name = agot_burn_your_enemies_temp_lead_score_var value = -1 }
@@ -62,21 +62,15 @@ agot_burn_your_enemies_pick_dragon_defenders_effect = {
     }
 
     if = {
-        limit = { root.var:agot_burn_your_enemies_temp_defender_count_var > 1 }
-        if = {
-            limit = { has_game_rule = agot_burn_your_enemies_multi_dragon_no_fight }
-            root = {
-                clear_variable_list = agot_burn_your_enemies_defender_list
-            }
+        limit = {
+            root.var:agot_burn_your_enemies_temp_defender_count_var > 1
+            has_game_rule = agot_burn_your_enemies_duel_fight_biggest
         }
-        else_if = {
-            limit = { has_game_rule = agot_burn_your_enemies_multi_dragon_fight_biggest }
-            root = {
-                clear_variable_list = agot_burn_your_enemies_defender_list
-                add_to_variable_list = {
-                    name = agot_burn_your_enemies_defender_list
-                    target = scope:agot_burn_your_enemies_lead_defender
-                }
+        root = {
+            clear_variable_list = agot_burn_your_enemies_defender_list
+            add_to_variable_list = {
+                name = agot_burn_your_enemies_defender_list
+                target = scope:agot_burn_your_enemies_lead_defender
             }
         }
     }

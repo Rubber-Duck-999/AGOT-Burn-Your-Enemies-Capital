@@ -53,11 +53,11 @@ agot_burn_your_enemies_dragon_raid.0001 = {
 
         if = {
             limit = {
-                has_game_rule = agot_burn_your_enemies_duel_enabled
+                NOT = { has_game_rule = agot_burn_your_enemies_duel_disabled }
                 has_variable_list = agot_burn_your_enemies_defender_list
             }
             trigger_event = {
-                id = agot_burn_your_enemies_dragon_raid.0010
+                id = agot_burn_your_enemies_dragon_raid.0009
             }
         }
         else_if = {
@@ -211,16 +211,11 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_minor_scorpion_damage_effect = yes
 
         scope:recipient = {
-            if = {
-                limit = {
-                    NOT = { has_character_flag = agot_burn_your_enemies_recipient_fled }
-                }
-                add_trait = wounded_2
-                add_trait = burned
-                add_trait_xp = {
-                    trait = burned
-                    value = 30
-                }
+            add_trait = wounded_2
+            add_trait = burned
+            add_trait_xp = {
+                trait = burned
+                value = 30
             }
             add_opinion = {
                 target = scope:actor
@@ -283,37 +278,32 @@ agot_burn_your_enemies_dragon_raid.0002 = {
         agot_burn_your_enemies_major_scorpion_damage_effect = yes
 
         scope:recipient = {
-            if = {
-                limit = {
-                    NOT = { has_character_flag = agot_burn_your_enemies_recipient_fled }
-                }
-                random_list = {
-                    40 = {
-                        add_trait = wounded_2
-                        add_trait = burned
-                        add_trait_xp = {
-                            trait = burned
-                            value = 50
+            random_list = {
+                40 = {
+                    add_trait = wounded_2
+                    add_trait = burned
+                    add_trait_xp = {
+                        trait = burned
+                        value = 50
+                    }
+                    add_opinion = {
+                        target = scope:actor
+                        modifier = agot_burn_your_enemies_dynasty_feud
+                    }
+                    if = {
+                        limit = {
+                            can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
                         }
-                        add_opinion = {
+                        set_relation_rival = {
                             target = scope:actor
-                            modifier = agot_burn_your_enemies_dynasty_feud
-                        }
-                        if = {
-                            limit = {
-                                can_set_relation_rival_if_adult_trigger = { CHARACTER = scope:actor }
-                            }
-                            set_relation_rival = {
-                                target = scope:actor
-                                reason = rival_burned_my_capital
-                            }
+                            reason = rival_burned_my_capital
                         }
                     }
-                    60 = {
-                        death = {
-                            death_reason = death_dragon_fire
-                            killer = scope:agot_burn_your_enemies_my_dragon
-                        }
+                }
+                60 = {
+                    death = {
+                        death_reason = death_dragon_fire
+                        killer = scope:agot_burn_your_enemies_my_dragon
                     }
                 }
             }
@@ -480,7 +470,6 @@ agot_burn_your_enemies_dragon_raid.0002 = {
             if = {
                 limit = {
                     is_alive = yes
-                    NOT = { has_character_flag = agot_burn_your_enemies_recipient_fled }
                 }
                 death = {
                     death_reason = death_dragon_fire
@@ -793,92 +782,6 @@ agot_burn_your_enemies_dragon_raid.0009 = {
     desc = agot_burn_your_enemies_dragon_raid.0009.desc
     theme = dragon
 
-    left_portrait = {
-        character = root
-    }
-
-    option = {
-        name = agot_burn_your_enemies_dragon_raid.0009.defend
-
-        trigger = {
-            OR = {
-                gold >= agot_burn_your_enemies_wildfire_defense_cost_value
-                has_trait = witch
-            }
-        }
-
-        ai_chance = {
-            base = 50
-            modifier = {
-                factor = 1.5
-                has_trait = paranoid
-            }
-            modifier = {
-                factor = 1.3
-                has_trait = brave
-            }
-            modifier = {
-                factor = 0
-                has_game_rule = agot_burn_your_enemies_recipient_ai_flee_only
-            }
-        }
-
-        if = {
-            limit = { gold >= agot_burn_your_enemies_wildfire_defense_cost_value }
-            add_gold = -agot_burn_your_enemies_wildfire_defense_cost_value
-            custom_tooltip = agot_burn_your_enemies_dragon_raid.0009.defend_wildfire_tt
-        }
-        else = {
-            custom_tooltip = agot_burn_your_enemies_dragon_raid.0009.defend_spell_tt
-        }
-
-        capital_province = {
-            set_variable = {
-                name = agot_burn_your_enemies_emergency_defense_var
-                value = yes
-                days = 30
-            }
-        }
-
-        add_stress = 10
-    }
-
-    option = {
-        name = agot_burn_your_enemies_dragon_raid.0009.flee
-
-        ai_chance = {
-            base = 50
-            modifier = {
-                factor = 1.5
-                has_trait = craven
-            }
-            modifier = {
-                factor = 0.5
-                has_trait = brave
-            }
-            modifier = {
-                factor = 0
-                has_game_rule = agot_burn_your_enemies_recipient_ai_defend_only
-            }
-        }
-
-        add_character_flag = {
-            flag = agot_burn_your_enemies_recipient_fled
-            years = 1
-        }
-
-        add_prestige = -50
-        add_stress = 15
-    }
-}
-
-agot_burn_your_enemies_dragon_raid.0010 = {
-    type = character_event
-    window = agot_dragon_character_event
-    title = agot_burn_your_enemies_dragon_raid.0010.t
-    desc = agot_burn_your_enemies_dragon_raid.0010.desc
-    theme = dragon
-
     immediate = {
         agot_burn_your_enemies_pick_next_dragon_duel_opponent_effect = yes
     }
@@ -893,7 +796,7 @@ agot_burn_your_enemies_dragon_raid.0010 = {
     }
 
     option = {
-        name = agot_burn_your_enemies_dragon_raid.0010.a
+        name = agot_burn_your_enemies_dragon_raid.0009.a
 
         hidden_effect = {
             configure_start_dragon_combat_effect = {
@@ -904,13 +807,13 @@ agot_burn_your_enemies_dragon_raid.0010 = {
         }
 
         trigger_event = {
-            id = agot_burn_your_enemies_dragon_raid.0011
+            id = agot_burn_your_enemies_dragon_raid.0010
             days = 1
         }
     }
 }
 
-agot_burn_your_enemies_dragon_raid.0011 = {
+agot_burn_your_enemies_dragon_raid.0010 = {
     type = character_event
     hidden = yes
 
@@ -924,7 +827,7 @@ agot_burn_your_enemies_dragon_raid.0011 = {
             has_variable = engaged_in_dragon_combat
         }
         trigger_event = {
-            id = agot_burn_your_enemies_dragon_raid.0011
+            id = agot_burn_your_enemies_dragon_raid.0010
             days = 1
         }
     }
@@ -936,7 +839,7 @@ agot_burn_your_enemies_dragon_raid.0011 = {
         if = {
             limit = { has_variable_list = agot_burn_your_enemies_defender_list }
             trigger_event = {
-                id = agot_burn_your_enemies_dragon_raid.0010
+                id = agot_burn_your_enemies_dragon_raid.0009
             }
         }
         else = {
